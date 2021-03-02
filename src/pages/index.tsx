@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 export const Home = (): JSX.Element => (
   <div className="grid h-screen place-items-center bg-blueGray-100 text-blueGray-600">
@@ -8,6 +8,6 @@ export const Home = (): JSX.Element => (
     </Head>
     <main></main>
   </div>
-)
+);
 
-export default Home
+export default Home;

@@ -1,5 +1,5 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import '../css/global.css'
+import { ChakraProvider } from '@chakra-ui/react';
+import '../css/global.css';
 const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
   Component,
   pageProps,
@@ -8,7 +8,7 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
     <ChakraProvider>
       <Component {...pageProps} />
     </ChakraProvider>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

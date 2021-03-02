@@ -1,11 +1,11 @@
-const colors=require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 module.exports = {
   purge: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        blueGray: colors.blueGray
+        blueGray: colors.blueGray,
       },
     },
   },
@@ -15,4 +15,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
