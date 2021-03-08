@@ -6,7 +6,9 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
 }): JSX.Element => {
   return (
     <ChakraProvider>
-      <Component {...pageProps} />
+      <div className="bg">
+        <Component {...pageProps} />
+      </div>
     </ChakraProvider>
   );
 };
