@@ -6,12 +6,21 @@ module.exports = {
     extend: {
       colors: {
         blueGray: colors.blueGray,
+        trueGray: colors.trueGray,
+        lightBlue: colors.lightBlue,
+      },
+      screens: {
+        xs: { max: '639px' },
       },
     },
   },
   variants: {
     extend: {
       scale: ['active'],
+      textColor: ['disabled'],
+      cursor: ['disabled'],
+      borderColor: ['focus-within', 'focus'],
+      borderWidth: ['focus-within', 'focus'],
     },
   },
   plugins: [],
