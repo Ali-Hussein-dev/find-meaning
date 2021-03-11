@@ -1,6 +1,6 @@
 import { Gifs } from '@/components/Gifs';
 import { render, screen } from '@/test/testUtils';
-import mockedData from '@/test/mockedData.json';
+// import mockedData from '@/test/mockedData.json';
 describe('Gifs', () => {
   // test('expect an instance of gif when mounted', async () => {
   //   render(<Gifs list={mockedData.giphyResponse.data} />);
