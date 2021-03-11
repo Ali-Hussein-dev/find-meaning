@@ -12,9 +12,9 @@ const server = setupServer(
       ctx.json({
         lingua: mockedData.wikiResponse,
         giphy: mockedData.giphyResponse,
-      })
+      }),
     );
-  })
+  }),
 );
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 

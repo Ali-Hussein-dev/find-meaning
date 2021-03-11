@@ -25,4 +25,3 @@ export const fetcher_get = async (url: string, headers = {}): Promise<any> => {
       console.error(error);
     });
 };
-

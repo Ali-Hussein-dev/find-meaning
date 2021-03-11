@@ -6,7 +6,7 @@ describe('Conditional Component Util', () => {
     const { container } = render(
       <CC isTrue={''}>
         <span>children</span>{' '}
-      </CC>
+      </CC>,
     );
     expect(container).toBeEmptyDOMElement();
   });
@@ -14,7 +14,7 @@ describe('Conditional Component Util', () => {
     const { container } = render(
       <CC isTrue={'true'}>
         <span>children</span>{' '}
-      </CC>
+      </CC>,
     );
     expect(container).toHaveTextContent('children');
   });

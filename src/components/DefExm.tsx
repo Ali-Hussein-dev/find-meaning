@@ -14,8 +14,10 @@ export const DefExm: React.FC<{
         <div className="w-1 h-1 rounded-lg bg-lightBlue-200" />
       </div>
       <div className="w-11/12">
-        
-        <p><span className="italic text-lightBlue-300">{context?.join()} </span>{def}</p>
+        <p>
+          <span className="italic text-lightBlue-300">{context?.join()} </span>
+          {def}
+        </p>
         {typeof exm === 'string' ? (
           <p className="text-blueGray-400">{exm}</p>
         ) : Array.isArray(exm) ? (
