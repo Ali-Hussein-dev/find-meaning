@@ -1,9 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { giphy, lingua } from './API_Data';
 import { fetcher_get } from 'src/utils/index';
+
 const handler = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<any> => {
   if (req.method === 'POST') {
     const { query } = req.body;
@@ -20,7 +21,7 @@ const handler = async (
         JSON.stringify({
           lingua: wikiResponse,
           giphy: giphyResponse,
-        })
+        }),
       );
     } catch (error) {
       console.error(error);

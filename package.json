@@ -1,6 +1,6 @@
 {
-  "name": "prod-boilerplate",
-  "description": "Next.js with TS boilerplate for production",
+  "name": "find-meaning",
+  "description": "English dictionary",
   "author": "Ali Hussein",
   "license": "MIT",
   "version": "1.0.0",
