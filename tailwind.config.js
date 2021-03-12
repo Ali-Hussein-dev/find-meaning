@@ -8,6 +8,7 @@ module.exports = {
         blueGray: colors.blueGray,
         trueGray: colors.trueGray,
         lightBlue: colors.lightBlue,
+        orange: colors.orange,
       },
       screens: {
         xs: { max: '639px' },

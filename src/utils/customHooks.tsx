@@ -6,7 +6,7 @@ import { Ctx } from '../pages/search';
 //--------------------------------------useFetch
 export const useFetch = (
   query: string,
-  isEnabled = false
+  isEnabled = false,
 ): UseQueryResult<any> => {
   const setFreshData = React.useContext(Ctx)?.setFreshData;
   return useQuery(['lingua', query], () => fetcher_post(query), {
