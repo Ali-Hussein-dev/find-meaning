@@ -19,6 +19,15 @@ export interface Lexeme {
   forms: any[];
   synonymSets: any[];
 }
+const FormsContainer: React.FC<{ isTrue: any }> = ({ isTrue, children }) => (
+  <CC
+    isTrue={isTrue}
+    className="flex px-1 py-1 mb-1 border rounded xs:flex-col bg-trueGray-100 gap-x-2"
+  >
+    <span className="font-bold text-trueGray-400">Forms:</span>
+    <span className="flex items-center gap-x-4 ">{children}</span>
+  </CC>
+);
 //=======================
 export const WikiLexeme: React.FC<{
   lexeme: Lexeme;
@@ -44,11 +53,7 @@ export const WikiLexeme: React.FC<{
               context={o.context?.domains}
             />
           ))}
-          <CC
-            isTrue={lexeme?.forms?.length > 0}
-            className="flex items-center px-1 py-1 mb-1 border rounded gap-x-2 bg-trueGray-100"
-          >
-            <span className="font-bold text-trueGray-400">Forms:</span>
+          <FormsContainer isTrue={lexeme?.forms?.length > 0}>
             <span className="flex items-center gap-x-1">
               <TiUser className="text-trueGray-400" />
               {lexeme?.lemma}
@@ -60,7 +65,7 @@ export const WikiLexeme: React.FC<{
               <TiGroup className="text-trueGray-400" />
               {lexeme?.forms?.[0]?.form}
             </CC>
-          </CC>
+          </FormsContainer>
         </div>
       );
     case 'verb':
@@ -79,17 +84,13 @@ export const WikiLexeme: React.FC<{
           {senses.map((o, i) => (
             <DefExm key={i} def={o.definition} exm={o.usageExamples} />
           ))}
-          <CC
-            isTrue={lexeme?.forms?.length > 0}
-            className="flex items-center px-1 py-1 mb-1 border rounded gap-x-2 bg-trueGray-100"
-          >
-            <span className="font-bold text-trueGray-400">Forms:</span>
+          <FormsContainer isTrue={lexeme?.forms?.length > 0}>
             {lexeme.forms?.map((o, i) => (
               <CC key={i} isTrue={o.form}>
                 {o.form}
               </CC>
             ))}
-          </CC>
+          </FormsContainer>
         </div>
       );
     default:
