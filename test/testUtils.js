@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 
 const Providers = ({ children }) => {
-  const mockRouter = { query: { query: '' } };
+  const mockRouter = { query: { query: '' }, push: jest.fn };
 
   return (
     <ChakraProvider>

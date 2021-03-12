@@ -1502,114 +1502,1036 @@
   "wikiResponse": {
     "entries": [
       {
-        "entry": "device",
+        "entry": "go",
         "pronunciations": [
           {
             "transcriptions": [
-              { "transcription": "/dəˈvaɪs/", "notation": "IPA" }
+              {
+                "transcription": "/ɡəʉ/",
+                "notation": "IPA"
+              }
             ],
             "audio": {
-              "url": "https://api.linguarobot.io/media/pronunciations/en/device-us.mp3",
+              "url": "https://api.linguarobot.io/media/pronunciations/en/go-1-au.mp3",
+              "license": {
+                "name": "BY-SA 4.0",
+                "url": "https://creativecommons.org/licenses/by-sa/4.0"
+              },
+              "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=75271526"
+            },
+            "context": {
+              "regions": ["Australia"]
+            }
+          },
+          {
+            "transcriptions": [
+              {
+                "transcription": "/ɡɐʉ/",
+                "notation": "IPA"
+              }
+            ],
+            "context": {
+              "regions": ["New Zealand"]
+            }
+          },
+          {
+            "transcriptions": [
+              {
+                "transcription": "/ɡəʊ/",
+                "notation": "IPA"
+              }
+            ],
+            "context": {
+              "regions": ["United Kingdom"]
+            }
+          },
+          {
+            "transcriptions": [
+              {
+                "transcription": "/ɡoʊ/",
+                "notation": "IPA"
+              }
+            ],
+            "audio": {
+              "url": "https://api.linguarobot.io/media/pronunciations/en/go-1-us.mp3",
               "license": {
                 "name": "BY-SA 3.0",
                 "url": "https://creativecommons.org/licenses/by-sa/3.0"
               },
-              "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=2650855"
+              "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=711124"
             },
-            "context": { "regions": ["United States"] }
+            "context": {
+              "regions": ["United States"]
+            }
           }
         ],
+        "hyphenations": [["go"]],
         "interpretations": [
           {
-            "lemma": "device",
-            "normalizedLemmas": [{ "lemma": "device" }],
+            "lemma": "go",
+            "homographNumber": 1,
+            "normalizedLemmas": [
+              {
+                "lemma": "go",
+                "homographNumber": 1
+              }
+            ],
             "partOfSpeech": "noun",
-            "grammar": [{ "number": ["singular"], "case": ["nominative"] }]
+            "grammar": [
+              {
+                "number": ["singular"],
+                "case": ["nominative"]
+              }
+            ]
+          },
+          {
+            "lemma": "go",
+            "homographNumber": 1,
+            "normalizedLemmas": [
+              {
+                "lemma": "go",
+                "homographNumber": 1
+              }
+            ],
+            "partOfSpeech": "verb",
+            "grammar": [
+              {
+                "person": ["first-person", "second-person"],
+                "number": ["singular"],
+                "verbForm": ["finite"],
+                "tense": ["present"],
+                "mood": ["indicative"]
+              },
+              {
+                "person": ["first-person", "second-person", "third-person"],
+                "number": ["plural"],
+                "verbForm": ["finite"],
+                "tense": ["present"],
+                "mood": ["indicative"]
+              },
+              {
+                "person": ["first-person", "second-person", "third-person"],
+                "number": ["singular", "plural"],
+                "verbForm": ["finite"],
+                "tense": ["present"],
+                "mood": ["subjunctive"]
+              },
+              {
+                "person": ["first-person", "second-person", "third-person"],
+                "number": ["singular", "plural"],
+                "verbForm": ["finite"],
+                "mood": ["imperative"]
+              },
+              {
+                "verbForm": ["infinitive"]
+              }
+            ]
+          },
+          {
+            "lemma": "go",
+            "homographNumber": 1,
+            "normalizedLemmas": [
+              {
+                "lemma": "go",
+                "homographNumber": 1
+              }
+            ],
+            "partOfSpeech": "adjective"
           }
         ],
         "lexemes": [
           {
-            "lemma": "device",
+            "lemma": "go",
+            "homographNumber": 1,
             "partOfSpeech": "noun",
             "senses": [
               {
-                "definition": "Any piece of equipment made for a particular purpose, especially a mechanical or electrical one.",
-                "labels": ["countable"],
+                "definition": "The act of going.",
+                "labels": ["countable", "uncommon", "uncountable"]
+              },
+              {
+                "definition": "A turn at something, or in something (e.g. a game).",
+                "labels": ["countable", "uncountable"],
                 "usageExamples": [
-                  "There are a number of household devices in a kitchen such as a dishwasher, a garbage disposal, or an electric can opener."
+                  "It’s your go.",
+                  "You’ve been on that pinball machine long enough—now let your brother have a go."
+                ],
+                "synonyms": ["move", "stint", "turn"]
+              },
+              {
+                "definition": "An attempt, a try.",
+                "labels": ["countable", "uncountable"],
+                "usageExamples": ["I’ll give it a go."],
+                "synonyms": ["attempt", "bash", "shot", "stab", "try"]
+              },
+              {
+                "definition": "An approval or permission to do something, or that which has been approved.",
+                "labels": ["countable", "uncountable"],
+                "usageExamples": [
+                  "We will begin as soon as the boss says it's a go."
+                ],
+                "synonyms": ["green light"]
+              },
+              {
+                "definition": "An act; the working or operation.",
+                "labels": ["countable", "uncountable"]
+              },
+              {
+                "definition": "A circumstance or occurrence; an incident, often unexpected.",
+                "labels": ["countable", "obsolete", "slang", "uncountable"]
+              },
+              {
+                "definition": "The fashion or mode.",
+                "labels": ["countable", "obsolete", "uncountable"],
+                "usageExamples": ["quite the go"],
+                "synonyms": ["mode", "style", "trend"]
+              },
+              {
+                "definition": "Noisy merriment.",
+                "labels": ["countable", "obsolete", "uncountable"],
+                "usageExamples": ["a high go"]
+              },
+              {
+                "definition": "A glass of spirits; a quantity of spirits.",
+                "labels": ["countable", "obsolete", "slang", "uncountable"],
+                "synonyms": ["gage", "measure"]
+              },
+              {
+                "definition": "Power of going or doing; energy; vitality; perseverance.",
+                "labels": ["uncountable"],
+                "usageExamples": ["There is no go in him."],
+                "synonyms": [
+                  "energy",
+                  "flair",
+                  "liveliness",
+                  "perseverance",
+                  "pizzazz",
+                  "spirit",
+                  "verve",
+                  "vigour",
+                  "vim",
+                  "vitality",
+                  "zest"
                 ]
               },
               {
-                "definition": "A peripheral device; an item of hardware.",
-                "labels": ["countable"],
-                "context": { "domains": ["computing"] }
+                "definition": "The situation where a player cannot play a card which will not carry the aggregate count above thirty-one.",
+                "labels": ["countable", "uncountable"],
+                "context": {
+                  "domains": ["card games", "cribbage"]
+                }
               },
               {
-                "definition": "A project or scheme, often designed to deceive; a stratagem; an artifice.",
-                "labels": ["countable"]
+                "definition": "A period of activity.",
+                "labels": ["countable", "uncountable"],
+                "usageExamples": ["ate it all in one go"]
               },
               {
-                "definition": "An improvised explosive device, home-made bomb",
-                "labels": ["countable"],
-                "context": { "regions": ["Ireland"] }
-              },
-              {
-                "definition": "A technique that an author or speaker uses to evoke an emotional response in the audience; a rhetorical device.",
-                "labels": ["countable", "rhetorical"]
-              },
-              {
-                "definition": "A motto, emblem, or other mark used to distinguish the bearer from others. A device differs from a badge or cognizance primarily because as it is a personal distinction, and not a badge borne by members of the same house successively.",
-                "labels": ["countable"],
-                "context": { "domains": ["heraldry"] }
-              },
-              {
-                "definition": "Power of devising; invention; contrivance.",
-                "labels": ["countable", "obsolete"]
-              },
-              {
-                "definition": "An image used in whole or in part as a trademark or service mark.",
-                "labels": ["countable"],
-                "context": { "domains": ["jurisprudence"] }
-              },
-              {
-                "definition": "An image or logo denoting official or proprietary authority or provenience.",
-                "labels": ["countable"],
-                "context": { "domains": ["printing"] }
-              },
-              {
-                "definition": "A spectacle or show.",
-                "labels": ["countable", "obsolete"]
-              },
-              {
-                "definition": "Opinion; decision.",
-                "labels": ["countable", "obsolete"]
+                "definition": "(British slang) A dandy; a fashionable person.",
+                "labels": ["countable", "obsolete", "uncountable"]
               }
             ],
             "forms": [
               {
-                "form": "devices",
-                "grammar": [{ "number": ["plural"], "case": ["nominative"] }]
+                "form": "goes",
+                "grammar": [
+                  {
+                    "number": ["plural"],
+                    "case": ["nominative"]
+                  }
+                ]
               }
             ],
             "synonymSets": [
               {
-                "sense": "obsolete, power of devising",
-                "synonyms": ["contrivance", "invention"]
+                "synonyms": ["attempt", "bash", "shot", "stab", "try"]
               },
               {
-                "sense": "piece of equipment",
                 "synonyms": [
-                  "apparatus",
-                  "appliance",
-                  "contrivance",
-                  "design",
-                  "equipment",
-                  "gadget"
+                  "energy",
+                  "flair",
+                  "liveliness",
+                  "perseverance",
+                  "pizzazz",
+                  "spirit",
+                  "verve",
+                  "vigour",
+                  "vim",
+                  "vitality",
+                  "zest"
                 ]
               },
               {
-                "sense": "project or scheme",
-                "synonyms": ["artifice", "project", "scheme", "stratagem"]
+                "synonyms": ["gage", "measure"]
+              },
+              {
+                "synonyms": ["green light"]
+              },
+              {
+                "synonyms": ["mode", "style", "trend"]
+              },
+              {
+                "synonyms": ["move", "stint", "turn"]
+              }
+            ]
+          },
+          {
+            "lemma": "go",
+            "homographNumber": 1,
+            "partOfSpeech": "verb",
+            "senses": [
+              {
+                "definition": "To move:",
+                "subSenses": [
+                  {
+                    "definition": "To move through space (especially to or through a place). (May be used of tangible things like people or cars, or intangible things like moods or information.)",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "Chris, where are you going?",
+                      "There's no public transit where I'm going.",
+                      "This train goes through Cincinnati on its way to Chicago.",
+                      "Why don’t you go with us?",
+                      "Wow, look at him go!"
+                    ]
+                  },
+                  {
+                    "definition": "To move or travel through time (either literally—in a fictional or hypothetical situation in which time travel is possible—or in one's mind or knowledge of the historical record). (See also go back.)",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "Fans want to see the Twelfth Doctor go to the 51st century to visit River in the library.",
+                      "Yesterday was the second-wettest day on record; you have to go all the way back to 1896 to find a day when more rain fell."
+                    ]
+                  },
+                  {
+                    "definition": "To navigate (to a file or folder on a computer, a site on the internet, a memory, etc).",
+                    "labels": ["intransitive"]
+                  },
+                  {
+                    "definition": "To move (a particular distance, or in a particular fashion).",
+                    "usageExamples": [
+                      "This car can go circles around that one.",
+                      "We've only gone twenty miles today."
+                    ]
+                  },
+                  {
+                    "definition": "To move or travel in order to do something, or to do something while moving.",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["Let's go shopping.", "We went swimming."]
+                  },
+                  {
+                    "definition": "To leave; to move away.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "I really must be going.",
+                      "Please don't go!",
+                      "Workmen were coming and going at all hours of the night."
+                    ],
+                    "synonyms": [
+                      "depart",
+                      "exit",
+                      "go away",
+                      "go out",
+                      "leave"
+                    ],
+                    "antonyms": ["approach", "arrive", "come"]
+                  },
+                  {
+                    "definition": "To walk; to travel on one's feet.",
+                    "labels": ["intransitive", "obsolete"]
+                  }
+                ],
+                "synonyms": [
+                  "cross",
+                  "draw",
+                  "drift",
+                  "fare",
+                  "move",
+                  "tread",
+                  "wend"
+                ],
+                "antonyms": [
+                  "freeze",
+                  "halt",
+                  "remain",
+                  "stand still",
+                  "stay",
+                  "stop"
+                ]
+              },
+              {
+                "definition": "(chiefly of a machine) To work or function (properly); to move or perform (as required).",
+                "labels": ["intransitive"],
+                "usageExamples": ["The engine just won't go anymore."],
+                "synonyms": ["function", "operate", "work"]
+              },
+              {
+                "definition": "To start; to begin (an action or process).",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "Get ready, get set, go!",
+                  "Here goes nothing.",
+                  "Let's go and hunt.",
+                  "On your marks, get set, go!",
+                  "On your marks, set, go!"
+                ]
+              },
+              {
+                "definition": "To take a turn, especially in a game.",
+                "labels": ["intransitive"],
+                "usageExamples": ["It’s your turn; go."],
+                "synonyms": ["make one's move", "move", "take one’s turn"]
+              },
+              {
+                "definition": "To attend.",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "I go to school at the schoolhouse.",
+                  "She went to Yale.",
+                  "They only go to church on Christmas."
+                ]
+              },
+              {
+                "definition": "To proceed:",
+                "subSenses": [
+                  {
+                    "definition": "To proceed (often in a specified manner, indicating the perceived quality of an event or state).",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "\"How are things going?\" \"Not bad, thanks.\"",
+                      "That went well."
+                    ]
+                  },
+                  {
+                    "definition": "(with another verb, sometimes linked by and) To proceed (especially to do something foolish).",
+                    "labels": ["informal", "intransitive"],
+                    "usageExamples": [
+                      "He just went and punched the guy.",
+                      "Why'd you have to go and do that?",
+                      "Why'd you have to go do that?"
+                    ]
+                  }
+                ]
+              },
+              {
+                "definition": "To follow or travel along (a path):",
+                "subSenses": [
+                  {
+                    "definition": "To follow or proceed according to (a course or path).",
+                    "usageExamples": [
+                      "Let's go this way for a while.",
+                      "She was going that way anyway, so she offered to show him where it was."
+                    ]
+                  },
+                  {
+                    "definition": "To travel or pass along."
+                  }
+                ]
+              },
+              {
+                "definition": "To extend (from one point in time or space to another).",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "This property goes all the way to the state line."
+                ]
+              },
+              {
+                "definition": "To lead (to a place); to give access to.",
+                "labels": ["intransitive"],
+                "usageExamples": ["Does this road go to Fort Smith?"]
+              },
+              {
+                "definition": "To become. (The adjective that follows usually describes a negative state.)",
+                "labels": ["copular verb"],
+                "usageExamples": [
+                  "After failing as a criminal, he decided to go straight.",
+                  "I went crazy / went mad.",
+                  "You'll go blind.  The milk went bad."
+                ],
+                "synonyms": ["become", "change into", "turn"]
+              },
+              {
+                "definition": "To assume the obligation or function of; to be, to serve as."
+              },
+              {
+                "definition": "To continuously or habitually be in a state.",
+                "labels": ["copular verb", "intransitive"],
+                "usageExamples": [
+                  "I don't want my children to go hungry.",
+                  "We went barefoot in the summer."
+                ]
+              },
+              {
+                "definition": "To come to (a certain condition or state).",
+                "labels": ["copular verb"],
+                "usageExamples": [
+                  "They went into debt, she goes to sleep around 10 o'clock.",
+                  "the local shop wants to go digital, and eventually go global."
+                ]
+              },
+              {
+                "definition": "To change (from one value to another) in the meaning of wend.",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "The traffic light went straight from green to red."
+                ]
+              },
+              {
+                "definition": "To turn out, to result; to come to (a certain result).",
+                "usageExamples": ["How did your meeting with Smith go?"]
+              },
+              {
+                "definition": "To tend (toward a result).",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "These experiences go to make us stronger.",
+                  "Well, that goes to show you."
+                ]
+              },
+              {
+                "definition": "To contribute to a (specified) end product or result.",
+                "usageExamples": [
+                  "qualities that go to make a lady / lip-reader / sharpshooter"
+                ]
+              },
+              {
+                "definition": "To pass, to be used up:",
+                "subSenses": [
+                  {
+                    "definition": "(of time) To elapse, to pass; to slip away. (Compare go by.)",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["The time went slowly."]
+                  },
+                  {
+                    "definition": "To end or disappear. (Compare go away.)",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "After three days, my headache finally went."
+                    ],
+                    "synonyms": [
+                      "disappear",
+                      "dissipate",
+                      "end",
+                      "go away",
+                      "vanish"
+                    ],
+                    "antonyms": ["hold", "remain", "stay"]
+                  },
+                  {
+                    "definition": "To be spent or used up.",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["His money went on drink."]
+                  }
+                ]
+              },
+              {
+                "definition": "To die.",
+                "labels": ["intransitive"]
+              },
+              {
+                "definition": "To be discarded.",
+                "labels": ["intransitive"],
+                "usageExamples": ["This chair has got to go."]
+              },
+              {
+                "definition": "To be lost or out:",
+                "labels": ["intransitive"],
+                "context": {
+                  "domains": ["cricket"]
+                },
+                "subSenses": [
+                  {
+                    "definition": "(of a wicket) To be lost.",
+                    "labels": ["intransitive"],
+                    "context": {
+                      "domains": ["cricket"]
+                    }
+                  },
+                  {
+                    "definition": "(of a batsman) To be out.",
+                    "labels": ["intransitive"],
+                    "context": {
+                      "domains": ["cricket"]
+                    }
+                  }
+                ]
+              },
+              {
+                "definition": "To break down or apart:",
+                "subSenses": [
+                  {
+                    "definition": "To collapse or give way, to break apart.",
+                    "labels": ["intransitive"],
+                    "synonyms": [
+                      "collapse",
+                      "crumble",
+                      "disintegrate",
+                      "give way"
+                    ]
+                  },
+                  {
+                    "definition": "To break down or decay.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "My mind is going.",
+                      "She's 83; her eyesight is starting to go.",
+                      "This meat is starting to go off."
+                    ]
+                  }
+                ]
+              },
+              {
+                "definition": "To be sold.",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "Everything must go.",
+                  "The car went for five thousand dollars."
+                ]
+              },
+              {
+                "definition": "To be given, especially to be assigned or allotted.",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "The award went to Steven Spielberg.",
+                  "The property shall go to my wife."
+                ]
+              },
+              {
+                "definition": "To survive or get by; to last or persist for a stated length of time.",
+                "labels": ["intransitive", "transitive"],
+                "usageExamples": [
+                  "Can you two go twenty minutes without arguing?!",
+                  "How long can you go without water?",
+                  "I've gone ten days now without a cigarette.",
+                  "We've gone without your help for a while now."
+                ]
+              },
+              {
+                "definition": "To have a certain record.",
+                "labels": ["transitive"],
+                "context": {
+                  "domains": ["sports"]
+                },
+                "usageExamples": [
+                  "The team is going five in a row.",
+                  "They've gone one for three in this series."
+                ]
+              },
+              {
+                "definition": "To be authoritative, accepted, or valid:",
+                "subSenses": [
+                  {
+                    "definition": "To have (final) authority; to be authoritative.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "Whatever the boss says goes, do you understand?"
+                    ]
+                  },
+                  {
+                    "definition": "To be accepted.",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["Anything goes around here."]
+                  },
+                  {
+                    "definition": "To be valid.",
+                    "labels": ["intransitive"]
+                  }
+                ]
+              },
+              {
+                "definition": "To say (something), to make a sound:",
+                "subSenses": [
+                  {
+                    "definition": "To say (something, aloud or to oneself). (Often used in present tense.)",
+                    "labels": ["slang", "transitive"],
+                    "usageExamples": [
+                      "As soon as I did it, I went \"that was stupid.\"",
+                      "I go, \"As if!\" And she was all like, \"Whatever!\""
+                    ]
+                  },
+                  {
+                    "definition": "To make the (specified) sound.",
+                    "labels": ["transitive"],
+                    "usageExamples": [
+                      "Cats go \"meow\". Motorcycles go \"vroom\"."
+                    ]
+                  },
+                  {
+                    "definition": "To sound; to make a noise.",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["I woke up just before the clock went."]
+                  }
+                ]
+              },
+              {
+                "definition": "To be expressed or composed (a certain way).",
+                "usageExamples": [
+                  "As the story goes, he got the idea for the song while sitting in traffic.",
+                  "The tune goes like this."
+                ]
+              },
+              {
+                "definition": "To resort (to).",
+                "labels": ["intransitive"],
+                "usageExamples": ["I'll go to court if I have to."]
+              },
+              {
+                "definition": "To apply or subject oneself to:",
+                "subSenses": [
+                  {
+                    "definition": "To apply oneself; to undertake; to have as one's goal or intention. (Compare be going to.)",
+                    "usageExamples": [
+                      "He went to pick it up, but it rolled out of reach.",
+                      "He's going to leave town tomorrow.",
+                      "I wish you'd go and get a job.",
+                      "I'm going to join a sports team."
+                    ]
+                  },
+                  {
+                    "definition": "To make an effort, to subject oneself (to something).",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "I never thought he'd go so far as to call you.",
+                      "She went to great expense to help them win.",
+                      "You didn't have to go to such trouble."
+                    ]
+                  },
+                  {
+                    "definition": "To work (through or over), especially mentally.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "I've gone over this a hundred times.",
+                      "Let's not go into that right now."
+                    ]
+                  }
+                ]
+              },
+              {
+                "definition": "To fit (in a place, or together with something):",
+                "subSenses": [
+                  {
+                    "definition": "(often followed by a preposition) To fit.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "Do you think the sofa will go through the door?",
+                      "The belt just barely went around his waist."
+                    ],
+                    "synonyms": ["come", "fit", "make it", "pass", "stretch"]
+                  },
+                  {
+                    "definition": "To be compatible, especially of colors or food and drink.",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "This shade of red doesn't go with the drapes.",
+                      "White wine goes better with fish than red wine."
+                    ],
+                    "synonyms": ["harmonize"],
+                    "antonyms": ["clash"]
+                  },
+                  {
+                    "definition": "To belong (somewhere).",
+                    "labels": ["intransitive"],
+                    "usageExamples": [
+                      "My shirts go on this side of the wardrobe.",
+                      "This piece of the jigsaw goes on the other side."
+                    ],
+                    "synonyms": ["belong", "have a place"]
+                  }
+                ]
+              },
+              {
+                "definition": "To date.",
+                "labels": ["intransitive"],
+                "usageExamples": [
+                  "He's been going with her for two weeks.",
+                  "How long having they been going together?"
+                ],
+                "synonyms": ["date", "go out (with)", "see"]
+              },
+              {
+                "definition": "To attack:",
+                "subSenses": [
+                  {
+                    "definition": "To fight or attack.",
+                    "labels": ["intransitive"],
+                    "usageExamples": ["I went at him with a knife."]
+                  },
+                  {
+                    "definition": "To attack.",
+                    "labels": ["slang", "transitive"],
+                    "context": {
+                      "regions": ["Australia"]
+                    }
+                  }
+                ]
+              },
+              {
+                "definition": "To be in general; to be usually.",
+                "usageExamples": ["As sentences go, this one is pretty boring."]
+              },
+              {
+                "definition": "To take (a particular part or share); to participate in to the extent of.",
+                "labels": ["transitive"],
+                "usageExamples": ["Let's go halves on this."]
+              },
+              {
+                "definition": "To yield or weigh.",
+                "labels": ["transitive"],
+                "usageExamples": ["Those babies go five tons apiece."]
+              },
+              {
+                "definition": "To offer, bid or bet an amount; to pay.",
+                "labels": ["intransitive", "transitive"],
+                "usageExamples": [
+                  "I'll go a ten-spot.",
+                  "I'll go you a shilling.",
+                  "That's as high as I can go.",
+                  "We could go two fifty."
+                ]
+              },
+              {
+                "definition": "To enjoy. (Compare go for.)",
+                "labels": ["informal", "transitive"],
+                "usageExamples": ["I could go a beer right about now."]
+              },
+              {
+                "definition": "To urinate or defecate.",
+                "labels": ["informal", "intransitive"],
+                "usageExamples": [
+                  "Have you managed to go today, Mrs. Miggins?",
+                  "I really need to go."
+                ]
+              }
+            ],
+            "forms": [
+              {
+                "form": "goest",
+                "grammar": [
+                  {
+                    "person": ["second-person"],
+                    "number": ["singular"],
+                    "verbForm": ["finite"],
+                    "tense": ["present"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "wentest",
+                "grammar": [
+                  {
+                    "person": ["second-person"],
+                    "number": ["singular"],
+                    "verbForm": ["finite"],
+                    "tense": ["present"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "goes",
+                "grammar": [
+                  {
+                    "person": ["third-person"],
+                    "number": ["singular"],
+                    "verbForm": ["finite"],
+                    "tense": ["present"],
+                    "mood": ["indicative"]
+                  }
+                ]
+              },
+              {
+                "form": "goeth",
+                "grammar": [
+                  {
+                    "person": ["third-person"],
+                    "number": ["singular"],
+                    "verbForm": ["finite"],
+                    "tense": ["present"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "wenteth",
+                "grammar": [
+                  {
+                    "person": ["third-person"],
+                    "number": ["singular"],
+                    "verbForm": ["finite"],
+                    "tense": ["past"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "went",
+                "grammar": [
+                  {
+                    "person": ["first-person", "second-person", "third-person"],
+                    "number": ["singular", "plural"],
+                    "verbForm": ["finite"],
+                    "tense": ["past"],
+                    "mood": ["indicative"]
+                  }
+                ]
+              },
+              {
+                "form": "yede",
+                "grammar": [
+                  {
+                    "person": ["first-person", "second-person", "third-person"],
+                    "number": ["singular", "plural"],
+                    "verbForm": ["finite"],
+                    "tense": ["past"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "yode",
+                "grammar": [
+                  {
+                    "person": ["first-person", "second-person", "third-person"],
+                    "number": ["singular", "plural"],
+                    "verbForm": ["finite"],
+                    "tense": ["past"],
+                    "mood": ["indicative"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "going",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["present"]
+                  },
+                  {
+                    "verbForm": ["gerund"]
+                  }
+                ]
+              },
+              {
+                "form": "goand",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["present"]
+                  },
+                  {
+                    "verbForm": ["gerund"]
+                  }
+                ],
+                "labels": ["dialectal", "obsolete"]
+              },
+              {
+                "form": "agoing",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["present"]
+                  },
+                  {
+                    "verbForm": ["gerund"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "gwine",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["present"]
+                  },
+                  {
+                    "verbForm": ["gerund"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "gone",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["past"]
+                  }
+                ]
+              },
+              {
+                "form": "wente",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["past"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              },
+              {
+                "form": "ygone",
+                "grammar": [
+                  {
+                    "verbForm": ["participle"],
+                    "tense": ["past"]
+                  }
+                ],
+                "labels": ["obsolete"]
+              }
+            ],
+            "synonymSets": [
+              {
+                "synonyms": ["become", "change into", "turn"]
+              },
+              {
+                "synonyms": [
+                  "cross",
+                  "draw",
+                  "drift",
+                  "fare",
+                  "move",
+                  "tread",
+                  "wend"
+                ]
+              },
+              {
+                "synonyms": ["date", "go out (with)", "see"]
+              },
+              {
+                "synonyms": ["function", "operate", "work"]
+              },
+              {
+                "synonyms": ["make one's move", "move", "take one’s turn"]
+              }
+            ],
+            "antonymSets": [
+              {
+                "antonyms": [
+                  "freeze",
+                  "halt",
+                  "remain",
+                  "stand still",
+                  "stay",
+                  "stop"
+                ]
+              }
+            ]
+          },
+          {
+            "lemma": "go",
+            "homographNumber": 1,
+            "partOfSpeech": "adjective",
+            "senses": [
+              {
+                "definition": "Working correctly and ready to commence operation; approved and able to be put into action.",
+                "labels": ["not comparable", "postpositive"]
               }
             ]
           }
@@ -1618,7 +2540,56 @@
           "name": "CC BY-SA 3.0",
           "url": "https://creativecommons.org/licenses/by-sa/3.0"
         },
-        "sourceUrls": ["https://en.wiktionary.org/wiki/device"]
+        "sourceUrls": ["https://en.wiktionary.org/wiki/go"]
+      },
+      {
+        "entry": "go",
+        "interpretations": [
+          {
+            "lemma": "go",
+            "homographNumber": 2,
+            "normalizedLemmas": [
+              {
+                "lemma": "go",
+                "homographNumber": 2
+              }
+            ],
+            "partOfSpeech": "noun",
+            "grammar": [
+              {
+                "number": ["singular"],
+                "case": ["nominative"]
+              }
+            ]
+          }
+        ],
+        "lexemes": [
+          {
+            "lemma": "go",
+            "homographNumber": 2,
+            "partOfSpeech": "noun",
+            "senses": [
+              {
+                "definition": "A strategic board game, originally from China, in which two players (black and white) attempt to control the largest area of the board with their counters.",
+                "labels": ["uncountable"],
+                "context": {
+                  "domains": ["board games"]
+                },
+                "synonyms": ["baduk", "weiqi"]
+              }
+            ],
+            "synonymSets": [
+              {
+                "synonyms": ["baduk", "weiqi"]
+              }
+            ]
+          }
+        ],
+        "license": {
+          "name": "CC BY-SA 3.0",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0"
+        },
+        "sourceUrls": ["https://en.wiktionary.org/wiki/go"]
       }
     ]
   },
