@@ -6,3 +6,4 @@ export * from './Gifs';
 export * from './CC';
 export * from './Input';
 export * from './DefExm';
+export * from './BgParticles';
