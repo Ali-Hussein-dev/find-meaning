@@ -28,6 +28,18 @@ const FormsContainer: React.FC<{ isTrue: any }> = ({ isTrue, children }) => (
     <span className="flex items-center gap-x-4 ">{children}</span>
   </CC>
 );
+const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
+  children,
+  partOfSpeech,
+}) => {
+  return (
+    <div className="mb-2 border-b border-blueGray-300">
+      <h3 className="font-bold text-lightBlue-300"> {partOfSpeech}</h3>
+      {children}
+    </div>
+  );
+};
+
 //=======================
 export const WikiLexeme: React.FC<{
   lexeme: Lexeme;
@@ -43,8 +55,7 @@ export const WikiLexeme: React.FC<{
   switch (partOfSpeech) {
     case 'noun':
       return (
-        <div className="mb-2 border-b border-lightBlue-100">
-          <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
+        <LexemeContainer partOfSpeech={partOfSpeech}>
           {senses.map((o, i) => (
             <DefExm
               key={i}
@@ -66,20 +77,19 @@ export const WikiLexeme: React.FC<{
               {lexeme?.forms?.[0]?.form}
             </CC>
           </FormsContainer>
-        </div>
+        </LexemeContainer>
       );
     case 'verb':
       return (
-        <div className="mb-2 border-b border-lightBlue-100">
-          <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
+        <LexemeContainer partOfSpeech={partOfSpeech}>
           {senses.map((o, i) => (
             <DefExm key={i} def={o.definition} exm={o.usageExamples} />
           ))}
-        </div>
+        </LexemeContainer>
       );
     case 'adjective':
       return (
-        <div className="mb-2 border-b border-blueGray-100">
+        <div className="mb-2 border-b border-blueGray-300">
           <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
           {senses.map((o, i) => (
             <DefExm key={i} def={o.definition} exm={o.usageExamples} />
@@ -95,12 +105,11 @@ export const WikiLexeme: React.FC<{
       );
     default:
       return (
-        <div className="mb-2 border-b border-lightBlue-100">
-          <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
+        <LexemeContainer partOfSpeech={partOfSpeech}>
           {senses.map((o, i) => (
             <DefExm key={i} def={o.definition} exm={o.usageExamples} />
           ))}
-        </div>
+        </LexemeContainer>
       );
   }
 };
