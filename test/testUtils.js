@@ -2,14 +2,18 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const Providers = ({ children }) => {
-  const mockRouter = { query: { query: '' }, push: jest.fn };
+  const mockRouter = { query: { query: 'hire' }, push: jest.fn };
+  const queryClient = new QueryClient();
 
   return (
     <ChakraProvider>
       <RouterContext.Provider value={mockRouter}>
-        {children}
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
       </RouterContext.Provider>
     </ChakraProvider>
   );
