@@ -1,7 +1,13 @@
 import * as React from 'react';
-type InputProps = React.ComponentPropsWithoutRef<'input'>;
+interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
+  cn?: string;
+}
+
 //=======================
-export const Input: React.FC<InputProps> = ({ ...props }) => {
+export const Input: React.FC<InputProps> = ({
+  cn = 'bg-blueGray-800 text-blueGray-200 focus:opacity-90 focus:bg-blueGray-700',
+  ...props
+}) => {
   // hooks
   //--------------------------------------
   // functions
@@ -13,8 +19,8 @@ export const Input: React.FC<InputProps> = ({ ...props }) => {
         type="text"
         name="search-input"
         aria-label="search-input"
-        placeholder="find meaning..."
-        className="w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none"
+        placeholder="start searching..."
+        className={`w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none ${cn}`}
         {...props}
       />
     </>

@@ -28,7 +28,7 @@ const config = {
     transparency: 0.9,
     shape: 'circle',
     boundingBox: 'canvas',
-    count: 60,
+    count: 90,
     minSize: 20,
     maxSize: 50,
     visible: true,
