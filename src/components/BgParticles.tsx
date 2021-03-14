@@ -2,8 +2,7 @@ import ParticleField from 'react-particles-webgl';
 const config = {
   showCube: false,
   dimension: '2D',
-  velocity: 1.2,
-  boundaryType: 'passthru',
+  boundaryType: 'bounce',
   antialias: false,
   direction: {
     xMin: -1,
@@ -44,10 +43,13 @@ const config = {
   },
 };
 //=======================
-export const BgParticles: React.FC = () => {
+export const BgParticles: React.FC<{ velocity?: number; count?: number }> = ({
+  velocity = 1.2,
+  count = 100,
+}) => {
   // hooks
   //--------------------------------------
   // functions
   //--------------------------------------
-  return <ParticleField config={config} />;
+  return <ParticleField config={{ count, velocity, ...config }} />;
 };

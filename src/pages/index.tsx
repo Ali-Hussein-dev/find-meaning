@@ -26,28 +26,26 @@ const HomeInput = () => {
   return (
     <div className="z-10 w-11/12 sm:w-8/12 md:w-6/12 ">
       <div className="flex items-center justify-center">
-        <h2 className="mb-2 text-2xl font-semibold text-center text-blueGray-300">
+        <h2 className="mb-2 text-2xl font-semibold text-center text-orange-700">
           Find-Meaning
         </h2>
         <span className="ml-1 text-xs text-blueGray-400">Demo</span>
       </div>
       <form
         onSubmit={handleSubmit}
-        className="flex items-center justify-center "
+        className="flex items-center overflow-hidden rounded-lg shadow bg-blueGray-700 opacity-90"
       >
-        <div className="flex-grow overflow-hidden rounded-lg shadow">
-          <Input
-            value={inputValue}
-            onChange={handleChange}
-            cn="text-blueGray-800 focus-within:bg-blueGray-300 opacity-90 bg-blueGray-700"
-          />
-        </div>
+        <Input
+          value={inputValue}
+          onChange={handleChange}
+          cn="flex-grow text-blueGray-800 focus-within:bg-blueGray-300 opacity-90 bg-blueGray-700"
+        />
         <label>
           <button
             role="button"
             type="submit"
             aria-label="submit"
-            className="w-12 h-12 p-3 rounded focus:outline-none focus:bg-blueGray-300"
+            className="w-12 h-12 p-3 focus:outline-none focus:bg-blueGray-600"
           >
             <BsSearch className="mx-auto text-blueGray-100" />
           </button>
@@ -58,14 +56,13 @@ const HomeInput = () => {
 };
 export const Home = (): JSX.Element => {
   return (
-    <div className="grid h-screen place-items-center bg-blueGray-100 text-blueGray-600">
+    <div className="grid h-screen place-items-center text-blueGray-600">
       <Head>
         <title>Find-Meaning</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-      <main className="relative grid w-full min-h-screen place-items-center bg-blueGray-800">
+      <main className="relative grid w-full min-h-screen place-items-center">
         <HomeInput />
-        <div className="absolute inset-0 z-0">
+        <div className="fixed inset-0 z-0 h-screen bg-gradient-blueGray">
           <BgParticleDynamic />
         </div>
       </main>
