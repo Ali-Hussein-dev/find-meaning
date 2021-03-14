@@ -59,11 +59,9 @@ export const SearchBar: React.FC = () => {
             </button>
           </CC>
           <div className="w-1 h-8 border-r" />
-          <span>
+          <span className="grid w-12 h-12 place-items-center">
             {status === 'loading' ? (
-              <span className="w-12">
-                <Spinner size="sm" className="mx-auto text-lightBlue-300" />
-              </span>
+              <Spinner size="sm" className=" text-lightBlue-300" />
             ) : (
               <label>
                 <button
@@ -71,9 +69,9 @@ export const SearchBar: React.FC = () => {
                   role="button"
                   type="submit"
                   aria-label="submit"
-                  className="w-12 h-12 focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
+                  className="focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
                 >
-                  <BsSearch className="mx-auto" />
+                  <BsSearch />
                 </button>
               </label>
             )}
