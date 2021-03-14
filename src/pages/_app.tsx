@@ -9,7 +9,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        fontFamily: 'Nunito',
+        fontFamily: 'Poppins, Sans-serif',
       },
     },
   },
@@ -20,6 +20,7 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
 }): JSX.Element => {
   return (
     <ChakraProvider theme={theme}>
+        <link rel="icon" href="/favicon.ico" />
       <div className="bg">
         <Component {...pageProps} />
       </div>
