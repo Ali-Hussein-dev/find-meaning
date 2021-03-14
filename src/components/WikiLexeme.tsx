@@ -22,7 +22,7 @@ export interface Lexeme {
 const FormsContainer: React.FC<{ isTrue: any }> = ({ isTrue, children }) => (
   <CC
     isTrue={isTrue}
-    className="flex px-1 py-1 mb-1 border rounded xs:flex-col bg-trueGray-100 gap-x-2"
+    className="flex px-1 py-1 mb-1 border rounded xxs:flex-col bg-trueGray-100 gap-x-2"
   >
     <span className="font-bold text-trueGray-400">Forms:</span>
     <span className="flex items-center gap-x-4 ">{children}</span>
