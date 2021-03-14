@@ -11,7 +11,8 @@ module.exports = {
         orange: colors.orange,
       },
       screens: {
-        xs: { max: '639px' },
+        xxs: { max: '430px' },
+        xs: { min: '431px' },
       },
     },
   },
