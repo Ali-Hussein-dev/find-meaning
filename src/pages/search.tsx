@@ -2,6 +2,10 @@ import { SearchBar, WikiResponse } from '@/components/index';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
+import dynamic from 'next/dynamic';
+const BgParticleDynamic = dynamic(() =>
+  import('../../src/components/index').then((com) => com.BgParticles),
+);
 //--------------------------------------
 interface CtxFreshData {
   freshData: any;
@@ -22,15 +26,18 @@ const SearchPage: React.FC = () => {
     <QueryClientProvider client={queryClient}>
       <Ctx.Provider value={{ freshData, setFreshData }}>
         <title>Find-Meaning | search</title>
-        <main className="flex flex-col items-center min-h-screen px-1 bg-blueGray-800">
+        <main className="flex flex-col items-center min-h-screen px-1 bg-gradient-blueGray">
           <div
             data-testid="search-page"
-            className="w-full px-1 sm:w-10/12 md:w-8/12"
+            className="z-10 w-full px-1 sm:w-11/12 md:w-9/12 lg:w-8/12"
           >
             <SearchBar />
             <ErrorBoundary FallbackComponent={Fallback}>
               <WikiResponse />
             </ErrorBoundary>
+          </div>
+          <div className="fixed inset-0 z-0 h-screen">
+            <BgParticleDynamic velocity={0.1} count={85} />
           </div>
         </main>
       </Ctx.Provider>
