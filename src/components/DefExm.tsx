@@ -10,7 +10,7 @@ export const DefExm: React.FC<{
   //--------------------------------------
   return (
     <div className="flex items-start w-full mb-2 text-trueGray-600">
-      <div className="w-8 pt-3 pl-3 xs:hidden ">
+      <div className="w-8 pt-3 pl-3 xxs:hidden ">
         <div className="w-1 h-1 rounded-lg bg-lightBlue-200" />
       </div>
       <div className="w-11/12">

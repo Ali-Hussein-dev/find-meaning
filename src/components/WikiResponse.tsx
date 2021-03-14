@@ -34,7 +34,7 @@ export const WikiResponse: React.FC = () => {
     <ErrorBoundary
       FallbackComponent={() => <div role="alert">Something went wrong!</div>}
     >
-      <div className="py-3 pl-2 pr-1 mb-3 border rounded-lg text-trueGray-600 bg-trueGray-50 bg-gradient-to-t from-trueGray-300 to-trueGray-50">
+      <div className="py-3 pl-2 pr-1 mb-3 border rounded-lg text-trueGray-600 bg-gradient-to-t from-trueGray-200 to-trueGray-50">
         <CC
           isTrue={!isResponse}
           className="flex flex-col mb-3 text-xl border-b border-lightBlue-100"
@@ -94,6 +94,7 @@ export const WikiResponse: React.FC = () => {
           </span>
         </CC>
       </div>
+    
     </ErrorBoundary>
   );
 };

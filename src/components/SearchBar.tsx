@@ -35,9 +35,9 @@ export const SearchBar: React.FC = () => {
   };
   //--------------------------------------
   return (
-    <div className="w-full pt-5 mb-3">
+    <div className="w-full pt-5 mb-3 text-trueGray-600">
       <form
-        className="flex items-center justify-between pr-1 overflow-hidden border-b rounded-t-lg text-trueGray-600 focus-within:border-lightBlue-400 focus-within:bg-blueGray-700 focus-within:opacity-90 border-blueGray-400 focus-within:border-b-2 "
+        className="flex items-center overflow-hidden border-b rounded-t-lg focus-within:border-lightBlue-400 focus-within:bg-blueGray-700 focus-within:opacity-90 border-blueGray-400 focus-within:border-b-2"
         onSubmit={handleSubmit}
         role="form"
       >
@@ -46,22 +46,23 @@ export const SearchBar: React.FC = () => {
           onChange={(e) => setInputValue(e.target.value)}
           disabled={status === 'loading'}
         />
-        <div className="flex items-center divide-x text-trueGray-500 border-trueGray-400">
+        <div className="flex items-center text-trueGray-500 bg-blueGray-800">
           <CC isTrue={inputValue.length > 0}>
             <button
               onClick={() => setInputValue('')}
               disabled={status === 'loading'}
               aria-label="delete-button"
               type="button"
-              className="p-2 transform rounded focus:outline-none active:scale-90 focus:bg-blueGray-100 disabled:text-trueGray-400 disabled:cursor-not-allowed text-blueGray-200"
+              className="w-12 h-12 transform focus:outline-none active:scale-90 focus:bg-blueGray-500 disabled:text-trueGray-400 disabled:cursor-not-allowed text-blueGray-200"
             >
-              <MdClear size="20" />
+              <MdClear size="20" className="mx-auto" />
             </button>
           </CC>
+          <div className="w-1 h-8 border-r" />
           <span>
             {status === 'loading' ? (
-              <span className="p-2">
-                <Spinner size="sm" className=" text-lightBlue-300" />
+              <span className="w-12">
+                <Spinner size="sm" className="mx-auto text-lightBlue-300" />
               </span>
             ) : (
               <label>
@@ -70,9 +71,9 @@ export const SearchBar: React.FC = () => {
                   role="button"
                   type="submit"
                   aria-label="submit"
-                  className="p-2 rounded focus:outline-none focus:bg-blueGray-200 text-blueGray-200"
+                  className="w-12 h-12 focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
                 >
-                  <BsSearch />
+                  <BsSearch className="mx-auto" />
                 </button>
               </label>
             )}
