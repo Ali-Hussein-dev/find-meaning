@@ -10,7 +10,7 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "eslint . --ext .ts,.tsx,.js",
     "test": "jest",
     "test-all": "npm-run-all -p type-check lint test"
   },
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@tailwindcss/jit": "^0.1.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",

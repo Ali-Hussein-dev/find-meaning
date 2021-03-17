@@ -16,14 +16,5 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      scale: ['active'],
-      textColor: ['disabled'],
-      cursor: ['disabled'],
-      borderColor: ['focus-within', 'focus'],
-      borderWidth: ['focus-within', 'focus'],
-    },
-  },
   plugins: [],
 };
