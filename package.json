@@ -12,7 +12,7 @@
     "format": "prettier --ignore-path .gitignore --write .",
     "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx .",
     "temp": "ls -la .git/hooks",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test-all": "npm-run-all -p check-types format lint test",
     "i": "npm i & npm update",
     "post:install": "npm dedpue",
@@ -20,17 +20,18 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test-all & & npm run build",
-      "pre-push": "npm run test-all",
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "**/*.+(ts|js|tsx|json)": [
-      "prettier --write",
+      "npm run format",
+      "npm run lint",
+      "npm run test",
       "git add"
-    ],
-    "*.+(js|ts|tsx)": "eslint"
+    ]
   },
   "dependencies": {
     "@chakra-ui/react": "^1.3.4",
