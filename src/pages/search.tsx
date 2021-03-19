@@ -3,8 +3,9 @@ import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import dynamic from 'next/dynamic';
-const BgParticleDynamic = dynamic(() =>
-  import('../../src/components/index').then((com) => com.BgParticles),
+const BgParticleDynamic = dynamic(
+  () => import('../../src/components/index').then((com) => com.BgParticles),
+  { ssr: false },
 );
 //--------------------------------------
 interface CtxFreshData {
