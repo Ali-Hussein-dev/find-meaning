@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { MdClear } from 'react-icons/md';
 import { useRouter } from 'next/router';
-import { Spinner } from '@chakra-ui/spinner';
+import { Spinner } from '@chakra-ui/react';
 import { useFetch } from 'src/utils';
 import { CC } from './CC';
 import { Input } from './Input';
@@ -30,7 +30,7 @@ export const SearchBar: React.FC = () => {
   // functions
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push({ query: { q: inputValue.toLowerCase() } });
+    router.push({ query: { q: inputValue.trim().toLowerCase() } });
     setIsEnabled(true);
   };
   //--------------------------------------
@@ -69,9 +69,9 @@ export const SearchBar: React.FC = () => {
                   role="button"
                   type="submit"
                   aria-label="submit"
-                  className="focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
+                  className="w-12 h-12 focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
                 >
-                  <BsSearch />
+                  <BsSearch className="mx-auto" />
                 </button>
               </label>
             )}
