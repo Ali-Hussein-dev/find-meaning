@@ -8,25 +8,29 @@
     "dev": "next build && next dev",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --ignore-path .gitignore --write .",
+    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx .",
+    "temp": "ls -la .git/hooks",
     "test": "jest",
-    "test-all": "npm-run-all -p type-check lint test"
+    "test-all": "npm-run-all -p check-types format lint test",
+    "i": "npm i & npm update",
+    "post:install": "npm dedpue",
+    "clean": "rm -rf node_modules & rm package-lock.json & npm i"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run type-check",
+      "pre-commit": "npm run test-all & & npm run build",
+      "pre-push": "npm run test-all",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "npm run format",
-      "npm run lint",
-      "npm run jest"
-    ]
+    "**/*.+(ts|js|tsx|json)": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.+(js|ts|tsx)": "eslint"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.3.4",
