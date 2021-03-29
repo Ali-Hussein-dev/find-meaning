@@ -81,8 +81,7 @@ describe('Async Conditional Component', () => {
   });
   //--------------------------------------
   it('Should render the default fallback-error WHEN isError truthy', () => {
-    // const fn = () => new Error('new error');
-    const { container, debug } = render(
+    const { container } = render(
       <AsyncCondComp isSuccess={false} isError>
         Children
       </AsyncCondComp>,
@@ -90,7 +89,6 @@ describe('Async Conditional Component', () => {
     const fallbackError = screen.queryByTestId('fallback-error');
     expect(container).not.toHaveTextContent('children');
     expect(fallbackError).toBeInTheDocument();
-    debug(container);
   });
   //--------------------------------------
 });
