@@ -69,7 +69,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorT> = ({
     >
       <div
         data-testid="loading-indicator"
-        className="w-full p-1 text-center"
+        className="w-full p-1 mx-auto text-center"
         {...props}
       >
         <Spinner size={size} />
@@ -77,3 +77,4 @@ export const LoadingIndicator: React.FC<LoadingIndicatorT> = ({
     </CondComp>
   );
 };
+// !todo abstract error fallback component

@@ -85,9 +85,13 @@ export const AsyncCondComp: React.FC<AsyncCondCompT> = ({
       <CondComp
         baseCond={React.isValidElement(customFallbackComp)}
         fallback={
-          <div data-testid="fallback-error" role="alert" className="mx-auto">
-            <TiInfoOutline size="30" className="text-orange-700" />
-            <p className="text-center">Something went wrong!</p>
+          <div
+            data-testid="fallback-error"
+            role="alert"
+            className="flex flex-col items-center"
+          >
+            <TiInfoOutline size="30" className="text-orange-700 " />
+            <p>Something went wrong!</p>
           </div>
         }
       >
@@ -95,12 +99,16 @@ export const AsyncCondComp: React.FC<AsyncCondCompT> = ({
       </CondComp>
     ) : null;
   } catch (error) {
-    return customFallbackComp ? (
+    return React.isValidElement(customFallbackComp) ? (
       customFallbackComp
     ) : (
-      <div data-testid="fallback-error" role="alert" className="mx-auto">
+      <div
+        data-testid="fallback-error"
+        role="alert"
+        className="flex flex-col items-center"
+      >
         <TiInfoOutline size="30" className="text-orange-700" />
-        <p className="text-center">Something went wrong!</p>
+        <p>Something went wrong!</p>
       </div>
     );
   }
