@@ -4,34 +4,41 @@ import { MdClear } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import { Spinner } from '@chakra-ui/react';
 import { useFetch } from 'src/utils';
-import { CC } from './CC';
-import { Input } from './Input';
+import { CondComp, Input } from '@/components/index';
 
 //=======================
 export const SearchBar: React.FC = () => {
   // hooks
   const router = useRouter();
   const [inputValue, setInputValue] = React.useState('');
-  const [isEnabled, setIsEnabled] = React.useState(false);
-
-  let query;
+  const [enabledFetching, setEnabledFetching] = React.useState(false);
   // eslint-disable-next-line prefer-const
-  query = typeof router.query?.q === 'string' ? router.query?.q : inputValue;
+  let query = inputValue;
+  if (typeof router.query.q !== 'string') {
+    router.query.q = '';
+  }
+
+  const linguaResponse = useFetch(['lingua', query], 'lingua', enabledFetching);
+  const { status } = linguaResponse;
 
   React.useEffect(() => {
-    if (typeof router.query?.q !== 'string') {
-      router.push({ query: { q: inputValue.toLowerCase() } });
+    if (typeof router.query?.q === 'string') {
+      setInputValue(router.query.q);
     }
-    setInputValue(query);
-  }, []);
-
-  const { status } = useFetch(query, query ? true : isEnabled);
+    if (enabledFetching) {
+      setEnabledFetching(false);
+    }
+  }, [router.query.q]);
   //--------------------------------------
   // functions
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (query.length === 0) {
+      console.error('query must be a string and not empty');
+    } else {
+      setEnabledFetching(true);
+    }
     router.push({ query: { q: inputValue.trim().toLowerCase() } });
-    setIsEnabled(true);
   };
   //--------------------------------------
   return (
@@ -47,34 +54,33 @@ export const SearchBar: React.FC = () => {
           disabled={status === 'loading'}
         />
         <div className="flex items-center text-trueGray-500 bg-blueGray-800">
-          <CC isTrue={inputValue.length > 0}>
+          <CondComp baseCond={inputValue.length > 0}>
             <button
               onClick={() => setInputValue('')}
               disabled={status === 'loading'}
               aria-label="delete-button"
               type="button"
-              className="w-12 h-12 transform focus:outline-none active:scale-90 focus:bg-blueGray-500 disabled:text-trueGray-400 disabled:cursor-not-allowed text-blueGray-200"
+              className="w-12 h-12 rounded-none btn focus:bg-blueGray-500 text-blueGray-200"
             >
               <MdClear size="20" className="mx-auto" />
             </button>
-          </CC>
+          </CondComp>
           <div className="w-1 h-8 border-r" />
           <span className="grid w-12 h-12 place-items-center">
-            {status === 'loading' ? (
-              <Spinner size="sm" className=" text-lightBlue-300" />
-            ) : (
-              <label>
-                <button
-                  disabled={inputValue.length === 0}
-                  role="button"
-                  type="submit"
-                  aria-label="submit"
-                  className="w-12 h-12 focus:outline-none focus:bg-blueGray-500 text-blueGray-200"
-                >
-                  <BsSearch className="mx-auto" />
-                </button>
-              </label>
-            )}
+            <CondComp
+              baseCond={status !== 'loading'}
+              fallback={<Spinner size="sm" className="text-lightBlue-300" />}
+            >
+              <button
+                disabled={inputValue.length === 0 || status === 'loading'}
+                role="button"
+                type="submit"
+                aria-label="submit"
+                className="w-12 h-12 icon-btn focus:bg-blueGray-500 text-blueGray-200"
+              >
+                <BsSearch className="mx-auto" />
+              </button>
+            </CondComp>
           </span>
         </div>
       </form>

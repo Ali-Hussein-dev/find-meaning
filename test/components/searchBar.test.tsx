@@ -1,34 +1,58 @@
-import { setupServer } from 'msw/node';
-import { rest } from 'msw';
-import SearchPage from '@/pages/search';
+// import { mocked } from '@/test/__mocks__';
+import { SearchBar } from '@/components/SearchBar';
 import { render, screen } from '@/test/testUtils';
 import userEvent from '@testing-library/user-event';
-import mockedData from '@/test/mockedData.json';
 
-const server = setupServer(
-  rest.post('/api/handlers', (req, res, ctx) => {
-    return res(
-      ctx.json({
-        lingua: mockedData.wikiResponse,
-        giphy: mockedData.giphyResponse,
-      }),
-    );
-  }),
-);
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+// TODO compolete implementation
+// beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 
-afterAll(() => server.close());
-afterEach(() => server.resetHandlers());
+// afterAll(() => server.close());
+// afterEach(() => server.resetHandlers());
 
 describe('Search Bar', () => {
-  test('look up device', () => {
-    const { container } = render(<SearchPage />);
-    const submit = screen.getByRole('button', {
+  it('should input be disabled WHEN submit event is fired off', () => {
+    render(<SearchBar />);
+    const submitBtn = screen.getByRole('button', {
       name: /submit/i,
     });
     const inputLabel = screen.getByLabelText(/search-input/i);
-    userEvent.type(inputLabel, 'device');
-    userEvent.click(submit);
-    expect(container).toHaveTextContent('Find-Meaning');
+    userEvent.type(inputLabel, 'value');
+    userEvent.click(submitBtn);
+    expect(inputLabel).toBeDisabled();
   });
+  //--------------------------------------
+  it('should submit btn be disabled WHEN input is still empty', () => {
+    render(<SearchBar />);
+    const submitBtn = screen.getByRole('button', {
+      name: /submit/i,
+    });
+    const inputLabel = screen.getByLabelText(/search-input/i);
+    expect(submitBtn).toBeDisabled();
+    userEvent.type(inputLabel, 'v');
+    expect(submitBtn).not.toBeDisabled();
+  });
+  //--------------------------------------
+  it('Should del btn displayed WHEN start typing', () => {
+    render(<SearchBar />);
+    const inputLabel = screen.getByLabelText(/search-input/i);
+    let delBtn = screen.queryByRole('button', {
+      name: /delete-button/i,
+    });
+    expect(delBtn).toBe(null);
+    userEvent.type(inputLabel, 'd');
+    delBtn = screen.getByRole('button', {
+      name: /delete-button/i,
+    });
+    expect(delBtn).toBeInTheDocument();
+    expect(delBtn).toBeVisible();
+  });
+  //--------------------------------------
+  it('Should match snapshots ', () => {
+    const { container } = render(<SearchBar />);
+    expect(container).toMatchSnapshot();
+    const inputLabel = screen.getByLabelText(/search-input/i);
+    userEvent.type(inputLabel, 'device');
+    expect(container).toMatchSnapshot();
+  });
+  //--------------------------------------
 });
