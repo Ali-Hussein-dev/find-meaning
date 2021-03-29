@@ -33,7 +33,7 @@ const handler = async (
             urban.getUrl(query),
             urban.headers,
           );
-          response.urban.list.sort((a, b) => b.thumbs_up - a.thumbs_up);
+          response.urban?.list?.sort((a, b) => b.thumbs_up - a.thumbs_up);
           if (response.urban?.list?.length > 5) {
             response.urban.list.length = 5;
           }
