@@ -1,6 +1,6 @@
 import { DefExm } from '@/components/index';
 import { TiGroup, TiUser } from 'react-icons/ti';
-import { CC } from './CC';
+import { CondComp } from '@/components/index';
 // interface Sense {
 //   definition: string;
 //   usageExamples?: string | string[];
@@ -19,14 +19,19 @@ export interface Lexeme {
   forms: any[];
   synonymSets: any[];
 }
-const FormsContainer: React.FC<{ isTrue: any }> = ({ isTrue, children }) => (
-  <CC
-    isTrue={isTrue}
-    className="flex px-1 py-1 mb-1 border rounded xxs:flex-col bg-trueGray-100 gap-x-2"
+const FormsContainer: React.FC<{ baseCond: boolean }> = ({
+  baseCond,
+  children,
+}) => (
+  <CondComp
+    baseCond={baseCond}
+    className="flex px-1 py-1 mb-1 rounded xxs:flex-col bg-trueGray-100 gap-x-2"
   >
     <span className="font-bold text-trueGray-400">Forms:</span>
-    <span className="flex items-center gap-x-4 ">{children}</span>
-  </CC>
+    <span className="flex flex-wrap items-center gap-x-4 xxs:text-sm">
+      {children}
+    </span>
+  </CondComp>
 );
 const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
   children,
@@ -64,18 +69,18 @@ export const WikiLexeme: React.FC<{
               context={o.context?.domains}
             />
           ))}
-          <FormsContainer isTrue={lexeme?.forms?.length > 0}>
+          <FormsContainer baseCond={lexeme?.forms?.length > 0}>
             <span className="flex items-center gap-x-1">
               <TiUser className="text-trueGray-400" />
               {lexeme?.lemma}
             </span>
-            <CC
-              isTrue={lexeme?.forms?.[0]?.form}
+            <CondComp
+              baseCond={lexeme?.forms?.[0]?.form}
               className="flex items-center gap-x-1"
             >
               <TiGroup className="text-trueGray-400" />
               {lexeme?.forms?.[0]?.form}
-            </CC>
+            </CondComp>
           </FormsContainer>
         </LexemeContainer>
       );
@@ -91,14 +96,16 @@ export const WikiLexeme: React.FC<{
       return (
         <div className="mb-2 border-b border-blueGray-300">
           <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
-          {senses.map((o, i) => (
-            <DefExm key={i} def={o.definition} exm={o.usageExamples} />
-          ))}
-          <FormsContainer isTrue={lexeme?.forms?.length > 0}>
+          <>
+            {senses.map((o, i) => (
+              <DefExm key={i} def={o.definition} exm={o.usageExamples} />
+            ))}
+          </>
+          <FormsContainer baseCond={lexeme?.forms?.length > 0}>
             {lexeme.forms?.map((o, i) => (
-              <CC key={i} isTrue={o.form}>
+              <CondComp key={i} baseCond={!!o.form}>
                 {o.form}
-              </CC>
+              </CondComp>
             ))}
           </FormsContainer>
         </div>
