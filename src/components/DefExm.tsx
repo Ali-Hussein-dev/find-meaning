@@ -18,15 +18,17 @@ export const DefExm: React.FC<{
           <span className="italic text-lightBlue-300">{context?.join()} </span>
           {def}
         </p>
-        {typeof exm === 'string' ? (
-          <p className="text-blueGray-400">{exm}</p>
-        ) : Array.isArray(exm) ? (
-          exm?.map((str, i) => (
-            <p className="text-blueGray-400" key={i}>
-              {str}
-            </p>
-          ))
-        ) : null}
+        <>
+          {typeof exm === 'string' ? (
+            <p className="text-blueGray-400">{exm}</p>
+          ) : Array.isArray(exm) ? (
+            exm?.map((str, i) => (
+              <p className="text-blueGray-400" key={i}>
+                {str}
+              </p>
+            ))
+          ) : null}
+        </>
       </div>
     </div>
   );
