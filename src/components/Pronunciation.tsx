@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TiVolumeUp } from 'react-icons/ti';
-import { CC } from './CC';
+import { CondComp } from './CC';
 //=======================
 export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
   audioSrc,
@@ -18,15 +18,15 @@ export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
     }
   }, []);
   return (
-    <CC isTrue={audioSrc} className="grid place-items-center">
+    <CondComp baseCond={!!audioSrc} isFragment>
       <button
-        className="transform text-lightBlue-400 disabled:text-blueGray-400 focus:outline-none focus:scale-90"
+        className=" text-lightBlue-400 press-effect icon-btn "
         aria-label="audio-btn"
         onClick={playAudio}
         disabled={isPlaying}
         role="button"
       >
-        <TiVolumeUp size="25" className="" />
+        <TiVolumeUp size="30" />
       </button>
       <audio
         preload="auto"
@@ -42,6 +42,6 @@ export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
         <source src={audioSrc} type="audio/mp3" />
         Your browser does not support the audio element!
       </audio>
-    </CC>
+    </CondComp>
   );
 };

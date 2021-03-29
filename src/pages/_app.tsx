@@ -20,10 +20,8 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
 }): JSX.Element => {
   return (
     <ChakraProvider theme={theme}>
-        <link rel="icon" href="/favicon.ico" />
-      <div className="bg">
-        <Component {...pageProps} />
-      </div>
+      <link rel="icon" href="/favicon.ico" />
+      <Component {...pageProps} />
     </ChakraProvider>
   );
 };
