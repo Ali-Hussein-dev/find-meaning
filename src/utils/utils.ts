@@ -1,12 +1,21 @@
 import Axios from 'axios';
+export type keyQueryT = 'urban' | 'lingua' | 'giphy';
 //--------------------------------------1
-export const fetcher_post = async (query: string): Promise<any> => {
+export const fetcher_post = async (
+  query: string,
+  keyQuery: keyQueryT,
+): Promise<any> => {
+  let promise;
   try {
-    return await Axios({
+    promise = await Axios({
       url: '/api/handlers',
       method: 'POST',
-      data: { query },
+      data: {
+        query,
+        keyQuery,
+      },
     });
+    return promise;
   } catch (error) {
     console.error(error);
   }

@@ -1,19 +1,17 @@
-import * as React from 'react';
 import { useQuery } from 'react-query';
 import { UseQueryResult } from 'react-query/types';
-import { fetcher_post } from './utils';
-import { Ctx } from '../pages/search';
+import { keyQueryT, fetcher_post } from './utils';
+
 //--------------------------------------useFetch
 export const useFetch = (
-  query: string,
-  isEnabled = false,
+  keyQuery: [keyQueryT, string],
+  sourceName: keyQueryT,
+  enabled: boolean,
 ): UseQueryResult<any> => {
-  const setFreshData = React.useContext(Ctx)?.setFreshData;
-  return useQuery(['lingua', query], () => fetcher_post(query), {
+  return useQuery(keyQuery, () => fetcher_post(keyQuery[1], sourceName), {
     staleTime: Infinity,
-    enabled: isEnabled,
-    onSuccess: (d) => {
-      setFreshData(d);
-    },
+    cacheTime: Infinity,
+    enabled,
+    keepPreviousData: true,
   });
 };
