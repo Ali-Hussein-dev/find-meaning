@@ -1,4 +1,4 @@
-import { CC, Input } from '@/components/index';
+import { CondComp, Input } from '@/components/index';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import * as React from 'react';
@@ -43,8 +43,8 @@ const HomeInput = () => {
           onChange={handleChange}
           cn="flex-grow text-blueGray-800 focus-within:bg-blueGray-300 opacity-90 bg-blueGray-700"
         />
-        <CC
-          isTrue={isIdle}
+        <CondComp
+          baseCond={isIdle}
           fallback={
             <span className="grid w-12 h-12 place-items-center text-blueGray-300">
               <Spinner />
@@ -61,7 +61,7 @@ const HomeInput = () => {
               <BsSearch className="mx-auto text-blueGray-100" />
             </button>
           </label>
-        </CC>
+        </CondComp>
       </form>
     </div>
   );
