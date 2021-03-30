@@ -109,6 +109,15 @@ export const UrbanContainer: React.FC = () => {
               isSuccess={urbanResponse.status !== 'loading'}
               isLoading={urbanResponse.status === 'loading'}
               customLoadingComp={<LoadingIndicator size="sm" />}
+              isError={urbanResponse.isError}
+              customFallbackComp={
+                <TiChevronLeft
+                  size="25"
+                  className={`text-blueGray-400 transition duration-500 ease-in-out transform ${
+                    isUrbanOpen ? '-rotate-90' : ''
+                  }`}
+                />
+              }
             >
               <TiChevronLeft
                 size="25"
