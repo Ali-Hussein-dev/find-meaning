@@ -1,5 +1,6 @@
 import { DefExm } from '@/components/index';
-import { TiGroup, TiUser } from 'react-icons/ti';
+import { AiTwotoneAppstore, AiTwotoneMinusSquare } from 'react-icons/ai';
+
 import { CondComp } from '@/components/index';
 // interface Sense {
 //   definition: string;
@@ -25,9 +26,9 @@ const FormsContainer: React.FC<{ baseCond: boolean }> = ({
 }) => (
   <CondComp
     baseCond={baseCond}
-    className="flex px-1 py-1 mb-1 rounded xxs:flex-col bg-trueGray-100 gap-x-2"
+    className="flex px-1 py-1 mb-1 font-semibold rounded xxs:flex-col gap-x-2 bg-blueGray-100 text-blueGray-600"
   >
-    <span className="font-bold text-trueGray-400">Forms:</span>
+    <span className="font-bold text-blueGray-400">Forms:</span>
     <span className="flex flex-wrap items-center gap-x-4 xxs:text-sm">
       {children}
     </span>
@@ -71,14 +72,15 @@ export const WikiLexeme: React.FC<{
           ))}
           <FormsContainer baseCond={lexeme?.forms?.length > 0}>
             <span className="flex items-center gap-x-1">
-              <TiUser className="text-trueGray-400" />
+              <AiTwotoneMinusSquare className="text-blueGray-400" />
               {lexeme?.lemma}
             </span>
             <CondComp
               baseCond={lexeme?.forms?.[0]?.form}
-              className="flex items-center gap-x-1"
+              className="flex items-center gap-x-2"
             >
-              <TiGroup className="text-trueGray-400" />
+              <AiTwotoneAppstore className="text-blueGray-400" />
+
               {lexeme?.forms?.[0]?.form}
             </CondComp>
           </FormsContainer>
