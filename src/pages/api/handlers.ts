@@ -6,12 +6,12 @@ import { fetcher_get } from 'src/utils/index';
 const urban = new DictionaryReqObj(
   'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=',
   process.env.URBAN_HOST,
-  process.env.RAPIDAPI_KEY,
+  process.env.rapidapi_key,
 );
 const lingua = new DictionaryReqObj(
   'https://lingua-robot.p.rapidapi.com/language/v1/entries/en/',
   process.env.LINGUA_HOST,
-  process.env.RAPIDAPI_KEY,
+  process.env.rapidapi_key,
 );
 
 const response = {
