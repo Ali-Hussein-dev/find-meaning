@@ -21,6 +21,7 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
   return (
     <ChakraProvider theme={theme}>
       <link rel="icon" href="/favicon.ico" />
+      <title>Find Meaning</title>
       <Component {...pageProps} />
     </ChakraProvider>
   );

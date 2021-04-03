@@ -38,6 +38,7 @@ export const WikContainer: React.FC = () => {
           isResponseEmpty={islinguaResponeEmpty && !linguaResponse.isIdle}
           isLoading={linguaResponse.isLoading}
           isIdle={linguaResponse.isIdle}
+          isError={linguaResponse.isError}
           customIdleComp={<IdleUI />}
           customEmptyResponse={
             <EmptyResponseUI textPlaceholder="No defintion has been found" />
