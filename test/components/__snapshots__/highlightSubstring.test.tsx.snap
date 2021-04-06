@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Highlight unmatched characters when typing Should display unhighlighted characters WHEN inputValue is empty 1`] = `
+<div>
+  <span>
+    <span
+      class="text-blueGray-300"
+    />
+    <span>
+      suggestion
+    </span>
+  </span>
+</div>
+`;
