@@ -16,7 +16,9 @@ export const Input: React.FC<InputProps> = ({
     <>
       <label htmlFor="search-input" />
       <input
+        accessKey="j"
         type="text"
+        lang="en"
         name="search-input"
         aria-label="search-input"
         placeholder="start searching..."
