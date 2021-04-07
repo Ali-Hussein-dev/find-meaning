@@ -20,7 +20,7 @@ export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
   return (
     <CondComp baseCond={!!audioSrc} isFragment>
       <button
-        className=" text-lightBlue-400 press-effect icon-btn "
+        className="icon-btn text-lightBlue-400 press-effect focus:ring-2"
         aria-label="audio-btn"
         onClick={playAudio}
         disabled={isPlaying}

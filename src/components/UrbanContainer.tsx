@@ -68,14 +68,14 @@ export const UrbanContainer: React.FC = () => {
       <section className="responseContainer">
         <form className="flex items-center justify-between pb-1 mb-2 border-b">
           <span className="font-semibold text-blueGray-400 xxs:text-xs">
-            Translated by community
+            Community Usage
           </span>
           <button
             data-testid="gifs"
             disabled={giphyResponse.isFetching || query.length < 1}
             aria-pressed="false"
             type={isGiphyOpen ? 'button' : 'submit'}
-            className="px-2 text-sm focus:bg-blue-100 press-effect text-lightBlue-400 btn xxs:text-xs bg-blue-50"
+            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs bg-blue-50"
             onClick={(e) => {
               e.preventDefault();
               if (!isGiphyOpen) {
@@ -96,7 +96,7 @@ export const UrbanContainer: React.FC = () => {
             aria-pressed="false"
             disabled={query.length < 1 || urbanResponse.status === 'loading'}
             type={isUrbanOpen ? 'button' : 'submit'}
-            className="p-1 focus:bg-blueGray-200 icon-btn"
+            className="icon-btn p-1 focus:ring-2"
             onClick={(e) => {
               e.preventDefault();
               if (!isUrbanOpen) {
