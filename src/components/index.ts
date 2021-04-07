@@ -9,3 +9,4 @@ export * from './DefExm';
 export * from './UrbanContainer';
 export * from './BgParticles';
 export * from './leaf-components/AsyncStatus';
+export * from './leaf-components/HighlightSubstring';
