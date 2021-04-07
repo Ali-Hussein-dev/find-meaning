@@ -1,58 +1,42 @@
-// import { mocked } from '@/test/__mocks__';
-import { SearchBar } from '@/components/SearchBar';
-import { render, screen } from '@/test/testUtils';
+import { SearchBar } from '@/components/index';
 import userEvent from '@testing-library/user-event';
-
-// TODO compolete implementation
-// beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-
-// afterAll(() => server.close());
-// afterEach(() => server.resetHandlers());
-
+import { render, screen } from '../testUtils';
+/**
+ * test cases outline
+ * submit button
+ * input is empty => submit btn is disabled
+ * input isn't empty => submit btn is enabled
+ * del button
+ * input is empty => del btn is hidden
+ * input isn't empty => del btn is displayed
+ */
 describe('Search Bar', () => {
-  it('should input be disabled WHEN submit event is fired off', () => {
-    render(<SearchBar />);
-    const submitBtn = screen.getByRole('button', {
-      name: /submit/i,
-    });
-    const inputLabel = screen.getByLabelText(/search-input/i);
-    userEvent.type(inputLabel, 'value');
-    userEvent.click(submitBtn);
-    expect(inputLabel).toBeDisabled();
-  });
-  //--------------------------------------
-  it('should submit btn be disabled WHEN input is still empty', () => {
-    render(<SearchBar />);
-    const submitBtn = screen.getByRole('button', {
-      name: /submit/i,
-    });
-    const inputLabel = screen.getByLabelText(/search-input/i);
-    expect(submitBtn).toBeDisabled();
-    userEvent.type(inputLabel, 'v');
-    expect(submitBtn).not.toBeDisabled();
-  });
-  //--------------------------------------
-  it('Should del btn displayed WHEN start typing', () => {
-    render(<SearchBar />);
-    const inputLabel = screen.getByLabelText(/search-input/i);
-    let delBtn = screen.queryByRole('button', {
-      name: /delete-button/i,
-    });
-    expect(delBtn).toBe(null);
-    userEvent.type(inputLabel, 'd');
-    delBtn = screen.getByRole('button', {
-      name: /delete-button/i,
-    });
-    expect(delBtn).toBeInTheDocument();
-    expect(delBtn).toBeVisible();
-  });
-  //--------------------------------------
-  it('Should match snapshots ', () => {
+  it('Submit button: disabled, type, enabled', () => {
     const { container } = render(<SearchBar />);
-    expect(container).toMatchSnapshot();
-    const inputLabel = screen.getByLabelText(/search-input/i);
-    userEvent.type(inputLabel, 'device');
-    expect(container).toMatchSnapshot();
+    const input = container.querySelector('input');
+    const submit = screen.getByRole('button', {
+      name: 'submit',
+    });
+    expect(submit).toBeDisabled();
+    userEvent.type(input, 'value');
+    expect(submit).not.toBeDisabled();
+    userEvent.click(submit);
+  });
+  //--------------------------------------
+  it('Del button: hidden, type, displayed, clicked, hidden', () => {
+    const { container } = render(<SearchBar />);
+    const input = container.querySelector('input');
+    let del = screen.queryByTestId('del-btn');
+
+    expect(del).toBeNull();
+    userEvent.type(input, 'value');
+    expect(input).toHaveValue('value');
+    del = screen.getByTestId('del-btn');
+    expect(del).toBeVisible();
+    userEvent.click(del);
+    expect(input).toHaveValue('');
+    del = screen.queryByTestId('del-btn');
+    expect(del).toBeNull();
   });
   //--------------------------------------
 });
