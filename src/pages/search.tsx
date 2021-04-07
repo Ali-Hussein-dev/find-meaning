@@ -3,7 +3,7 @@ import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: Infinity,
@@ -28,10 +28,9 @@ const ResponsesContainer = () => {
 };
 //=======================
 const SearchPage: React.FC = () => {
-  // hooks
-  //--------------------------------------
-  // functions
-  //--------------------------------------
+  //--------------------------------------hooks
+
+  //--------------------------------------functions
   return (
     <main className="flex flex-col items-center min-h-screen px-1 bg-gradient-blueGray">
       <title>Find-Meaning | search</title>

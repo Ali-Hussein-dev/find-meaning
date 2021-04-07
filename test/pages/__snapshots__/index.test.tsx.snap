@@ -9,72 +9,102 @@ exports[`Home page Home page 1`] = `
       class="relative grid w-full min-h-screen place-items-center"
     >
       <div
-        class="z-10 w-11/12 sm:w-8/12 md:w-6/12 "
+        class="z-10 w-11/12 sm:w-10/12 md:w-6/12"
       >
         <div
           class="flex items-center justify-center"
         >
-          <h2
+          <h1
             class="mb-2 text-2xl font-semibold text-center text-orange-700"
           >
             Find-Meaning
-          </h2>
+          </h1>
           <span
             class="ml-1 text-xs text-blueGray-400"
           >
             Demo
           </span>
         </div>
-        <form
-          class="flex items-center overflow-hidden rounded-lg shadow bg-blueGray-700 opacity-90"
+        <div
+          class="w-full pt-5 mb-3 text-trueGray-600"
         >
-          <label
-            for="search-input"
-          />
-          <input
-            aria-label="search-input"
-            class="w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none flex-grow text-blueGray-800 focus-within:bg-blueGray-300 opacity-90 bg-blueGray-700"
-            name="search-input"
-            placeholder="start searching..."
-            type="text"
-            value=""
-          />
           <div
-            data-testid="cc-container"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="downshift-0-label"
+            class="relative flex flex-col w-full h-full"
+            role="combobox"
           >
-            <label>
-              <button
-                aria-label="submit"
-                class="w-12 h-12 p-3 focus:outline-none focus:bg-blueGray-600"
-                role="button"
-                type="submit"
+            <form
+              action="handlers.ts"
+              class="relative top-0 flex items-center justify-between w-full overflow-hidden rounded-t-lg focus-within:bg-blueGray-700 focus-within:opacity-90 border-lightBlue-400  focus-within:border-lightBlue-400 focus-within:border-b-2 border-b"
+              role="form"
+            >
+              <label
+                class="w-full"
+                for="downshift-0-input"
+                id="downshift-0-label"
               >
-                <svg
-                  class="mx-auto text-blueGray-100"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <label
+                  for="search-input"
+                />
+                <input
+                  accesskey="j"
+                  aria-autocomplete="list"
+                  aria-label="search-input"
+                  aria-labelledby="downshift-0-label"
+                  autocomplete="off"
+                  class="w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none bg-blueGray-800 text-blueGray-200 focus:opacity-90 focus:bg-blueGray-700"
+                  id="downshift-0-input"
+                  lang="en"
+                  name="search-input"
+                  placeholder="start searching..."
+                  type="text"
+                  value=""
+                />
+              </label>
+              <div
+                class="flex items-center text-trueGray-500 bg-blueGray-800"
+              >
+                <div
+                  class="grid w-12 h-12 place-items-center"
+                  data-testid="cc-container"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
-                    fill-rule="evenodd"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </label>
-             
+                  <button
+                    aria-label="submit"
+                    class="icon-btn w-12 h-12 rounded-none focus:bg-blueGray-500 text-blueGray-200"
+                    disabled=""
+                    role="button"
+                    type="submit"
+                  >
+                    <svg
+                      class="mx-auto"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                   
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
       <div
         class="fixed inset-0 z-0 h-screen bg-gradient-blueGray"
