@@ -14,7 +14,7 @@ import {
 
 //=======================
 export const WikContainer: React.FC = () => {
-  // hooks
+  //--------------------------------------hooks
   const router = useRouter();
   const query = typeof router.query?.q !== 'string' ? '' : router.query.q;
   const linguaResponse = useFetch(
@@ -22,12 +22,10 @@ export const WikContainer: React.FC = () => {
     'lingua',
     query.length <= 1 ? false : true,
   );
-  //--------------------------------------
   const lingua = linguaResponse.data?.data;
   const islinguaResponeEmpty = isEmpty(lingua?.entries);
   const lexemes = lingua?.entries?.[0]?.lexemes || [];
-  // functions
-  //--------------------------------------
+  //--------------------------------------functions
   return (
     <ErrorBoundary
       FallbackComponent={() => <div role="alert">Something went wrong!</div>}
@@ -48,8 +46,8 @@ export const WikContainer: React.FC = () => {
             baseCond={!islinguaResponeEmpty}
             className="flex flex-col mb-3 text-xl border-b border-lightBlue-100"
           >
-            <div className="flex items-center justify-start mb-2 gap-x-2">
-              <h2 className="font-semibold text-orange-800 uppercase">
+            <div className="flex items-center justify-start gap-x-2">
+              <h2 className="font-semibold uppercase text-blueGray-700">
                 {query}
               </h2>
               <Pronunciation
@@ -65,7 +63,7 @@ export const WikContainer: React.FC = () => {
             <WikiLexeme key={i} lexeme={o} />
           ))}
           <CondComp baseCond={!islinguaResponeEmpty}>
-            <span className="text-sm italic text-trueGray-400">
+            <span className="text-sm italic text-trueGray-500">
               Powered by Wiktionary
             </span>
           </CondComp>
