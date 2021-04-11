@@ -12,10 +12,10 @@ export const DefExm: React.FC<{
       </p>
       <>
         {typeof exm === 'string' ? (
-          <p className="ml-1 italic font-light text-trueGray-600">{exm}</p>
+          <p className="italic font-light text-fuchsia-800">{exm}</p>
         ) : Array.isArray(exm) ? (
           exm?.map((str, i) => (
-            <p className="ml-1 italic font-light text-trueGray-600" key={i}>
+            <p className="italic font-light text-fuchsia-800" key={i}>
               {str}
             </p>
           ))
