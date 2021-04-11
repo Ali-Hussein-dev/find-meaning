@@ -21,7 +21,7 @@ export const Home = (): JSX.Element => {
   return (
     <div className="grid h-screen place-items-center text-blueGray-600">
       <Head>
-        <title>Find-Meaning</title>
+        <title>Find Meaning</title>
       </Head>
       <main className="relative grid w-full min-h-screen place-items-center">
         <QueryClientProvider client={queryClient}>

@@ -26,10 +26,10 @@ const FormsContainer: React.FC<{ baseCond: boolean }> = ({
 }) => (
   <CondComp
     baseCond={baseCond}
-    className="flex px-1 py-1 mb-1 font-semibold rounded xxs:flex-col gap-x-2 bg-blueGray-100 text-blueGray-600"
+    className="flex px-1 py-1 font-semibold rounded xxs:flex-col gap-x-2 bg-blueGray-100 text-blueGray-600"
   >
-    <span className="font-bold text-blueGray-400">Forms:</span>
-    <span className="flex flex-wrap items-center gap-x-4 xxs:text-sm">
+    <span className="font-light text-blueGray-600">Forms:</span>
+    <span className="flex flex-wrap items-center gap-x-4 xxs:text-md">
       {children}
     </span>
   </CondComp>
@@ -39,8 +39,8 @@ const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
   partOfSpeech,
 }) => {
   return (
-    <div className="mb-2 border-b border-blueGray-300">
-      <h3 className="font-bold text-lightBlue-300"> {partOfSpeech}</h3>
+    <div className="mb-5">
+      <h3 className="font-bold text-lightBlue-500"> {partOfSpeech}</h3>
       {children}
     </div>
   );
@@ -50,14 +50,12 @@ const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
 export const WikiLexeme: React.FC<{
   lexeme: Lexeme;
 }> = ({ lexeme }) => {
-  // hooks
-  //--------------------------------------
-  // functions
+  //--------------------------------------hooks
   const { partOfSpeech, senses } = lexeme;
   if (senses.length > 3) {
     senses.length = 3;
   }
-  //--------------------------------------
+  //--------------------------------------functions
   switch (partOfSpeech) {
     case 'noun':
       return (
@@ -80,7 +78,6 @@ export const WikiLexeme: React.FC<{
               className="flex items-center gap-x-2"
             >
               <AiTwotoneAppstore className="text-blueGray-400" />
-
               {lexeme?.forms?.[0]?.form}
             </CondComp>
           </FormsContainer>
@@ -96,8 +93,7 @@ export const WikiLexeme: React.FC<{
       );
     case 'adjective':
       return (
-        <div className="mb-2 border-b border-blueGray-300">
-          <h3 className="font-bold text-lightBlue-300">{partOfSpeech}</h3>
+        <LexemeContainer partOfSpeech={partOfSpeech}>
           <>
             {senses.map((o, i) => (
               <DefExm key={i} def={o.definition} exm={o.usageExamples} />
@@ -110,7 +106,7 @@ export const WikiLexeme: React.FC<{
               </CondComp>
             ))}
           </FormsContainer>
-        </div>
+        </LexemeContainer>
       );
     default:
       return (

@@ -5,12 +5,10 @@ import { CondComp } from './CC';
 export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
   audioSrc,
 }) => {
-  // hooks
+  //--------------------------------------hooks
   const [isPlaying, setIsPlaying] = React.useState(false);
   const audioRef = React.useRef<HTMLAudioElement>();
-  //--------------------------------------
-  // functions
-  //--------------------------------------
+  //--------------------------------------functions
   const playAudio = React.useCallback(() => {
     audioRef?.current?.load();
     if (audioRef?.current?.play() !== undefined) {
@@ -20,7 +18,7 @@ export const Pronunciation: React.FC<{ audioSrc: string | undefined }> = ({
   return (
     <CondComp baseCond={!!audioSrc} isFragment>
       <button
-        className="icon-btn text-lightBlue-400 press-effect focus:ring-2"
+        className="icon-btn text-lightBlue-500 press-effect focus:ring-2"
         aria-label="audio-btn"
         onClick={playAudio}
         disabled={isPlaying}

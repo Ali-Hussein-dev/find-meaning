@@ -5,20 +5,18 @@
     @apply bg-gradient-to-b from-blueGray-900 to-blueGray-700 via-blueGray-800;
   }
   .responseContainer {
-    @apply py-3 pl-2 pr-1 mb-3 border rounded-lg text-trueGray-600 bg-blueGray-50;
+    @apply py-3 pl-2 pr-1 mb-3 rounded-lg shadow-lg text-trueGray-600 bg-blueGray-50;
   }
   .press-effect {
     @apply transform active:scale-90;
   }
   .btn {
-    @apply py-1 mx-auto font-semibold text-center rounded focus:outline-none hover:shadow disabled:text-blueGray-400 disabled:cursor-not-allowed;
+    @apply py-1 mx-auto font-semibold text-center rounded focus:outline-none hover:shadow disabled:text-blueGray-500 disabled:cursor-not-allowed;
   }
   .icon-btn {
-    @apply p-1 rounded focus:outline-none hover:shadow disabled:text-blueGray-400 disabled:cursor-not-allowed;
+    @apply p-1 rounded focus:outline-none hover:shadow disabled:text-blueGray-500 disabled:cursor-not-allowed;
   }
 }
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,600;1,700&display=swap');

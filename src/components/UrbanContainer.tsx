@@ -67,7 +67,7 @@ export const UrbanContainer: React.FC = () => {
     >
       <section className="responseContainer">
         <form className="flex items-center justify-between pb-1 mb-2 border-b">
-          <span className="font-semibold text-blueGray-400 xxs:text-xs">
+          <span className="font-semibold text-blueGray-500 xxs:text-md">
             Community Usage
           </span>
           <button
@@ -75,7 +75,7 @@ export const UrbanContainer: React.FC = () => {
             disabled={giphyResponse.isFetching || query.length < 1}
             aria-pressed="false"
             type={isGiphyOpen ? 'button' : 'submit'}
-            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs bg-blue-50"
+            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs "
             onClick={(e) => {
               e.preventDefault();
               if (!isGiphyOpen) {
@@ -113,7 +113,7 @@ export const UrbanContainer: React.FC = () => {
               customFallbackComp={
                 <TiChevronLeft
                   size="25"
-                  className={`text-blueGray-400 transition duration-500 ease-in-out transform ${
+                  className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
                     isUrbanOpen ? '-rotate-90' : ''
                   }`}
                 />
@@ -121,7 +121,7 @@ export const UrbanContainer: React.FC = () => {
             >
               <TiChevronLeft
                 size="25"
-                className={`text-blueGray-400 transition duration-500 ease-in-out transform ${
+                className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
                   isUrbanOpen ? '-rotate-90' : ''
                 }`}
               />
@@ -138,6 +138,7 @@ export const UrbanContainer: React.FC = () => {
         </AsyncCondComp>
         <AsyncCondComp
           isSuccess={!isEmpty(urban) && isUrbanOpen}
+          isLoading={urbanResponse.status === 'loading'}
           isResponseEmpty={isEmpty(urban) && isUrbanOpen}
           isError={urbanResponse.isError}
           customEmptyResponse={
@@ -161,7 +162,7 @@ export const UrbanContainer: React.FC = () => {
           </div>
         </AsyncCondComp>
         <CondComp baseCond={isUrbanOpen}>
-          <span className="text-sm italic text-trueGray-400">
+          <span className="text-sm italic text-trueGray-500">
             Powered by Urban & Giphy
           </span>
         </CondComp>
