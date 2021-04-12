@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { TiChevronLeft, TiInfoOutline } from 'react-icons/ti';
+import { TiChevronRight, TiInfoOutline } from 'react-icons/ti';
 import { Spinner } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { isEmpty } from 'lodash';
@@ -66,16 +66,53 @@ export const UrbanContainer: React.FC = () => {
       FallbackComponent={() => <div role="alert">Something went wrong!</div>}
     >
       <section className="responseContainer">
-        <form className="flex items-center justify-between pb-1 mb-2 border-b">
-          <span className="font-semibold text-blueGray-500 xxs:text-md">
-            Community Usage
-          </span>
+        <form className="flex items-center justify-between mb-2 border-b">
+          <div className="flex items-center gap-x-2">
+            <button
+              aria-pressed="false"
+              disabled={query.length < 1 || urbanResponse.status === 'loading'}
+              type={isUrbanOpen ? 'button' : 'submit'}
+              className="icon-btn p-1 focus:ring-2"
+              onClick={(e) => {
+                e.preventDefault();
+                if (!isUrbanOpen) {
+                  handleSubmit(e, 'urban');
+                }
+                setIsUrbanOpen(!isUrbanOpen);
+              }}
+            >
+              <AsyncCondComp
+                isSuccess={urbanResponse.status !== 'loading'}
+                isLoading={urbanResponse.status === 'loading'}
+                customLoadingComp={<LoadingIndicator size="sm" />}
+                isError={urbanResponse.isError}
+                customFallbackComp={
+                  <TiChevronRight
+                    size="25"
+                    className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
+                      isUrbanOpen ? '-rotate-90' : ''
+                    }`}
+                  />
+                }
+              >
+                <TiChevronRight
+                  size="25"
+                  className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
+                    isUrbanOpen ? 'rotate-90' : ''
+                  }`}
+                />
+              </AsyncCondComp>
+            </button>
+            <span className="font-semibold text-blueGray-500 xxs:text-md">
+              Community Usage
+            </span>
+          </div>
           <button
             data-testid="gifs"
             disabled={giphyResponse.isFetching || query.length < 1}
             aria-pressed="false"
             type={isGiphyOpen ? 'button' : 'submit'}
-            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs "
+            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs"
             onClick={(e) => {
               e.preventDefault();
               if (!isGiphyOpen) {
@@ -91,41 +128,6 @@ export const UrbanContainer: React.FC = () => {
             ) : (
               'Show GIFs'
             )}
-          </button>
-          <button
-            aria-pressed="false"
-            disabled={query.length < 1 || urbanResponse.status === 'loading'}
-            type={isUrbanOpen ? 'button' : 'submit'}
-            className="icon-btn p-1 focus:ring-2"
-            onClick={(e) => {
-              e.preventDefault();
-              if (!isUrbanOpen) {
-                handleSubmit(e, 'urban');
-              }
-              setIsUrbanOpen(!isUrbanOpen);
-            }}
-          >
-            <AsyncCondComp
-              isSuccess={urbanResponse.status !== 'loading'}
-              isLoading={urbanResponse.status === 'loading'}
-              customLoadingComp={<LoadingIndicator size="sm" />}
-              isError={urbanResponse.isError}
-              customFallbackComp={
-                <TiChevronLeft
-                  size="25"
-                  className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
-                    isUrbanOpen ? '-rotate-90' : ''
-                  }`}
-                />
-              }
-            >
-              <TiChevronLeft
-                size="25"
-                className={`text-blueGray-500 transition duration-500 ease-in-out transform ${
-                  isUrbanOpen ? '-rotate-90' : ''
-                }`}
-              />
-            </AsyncCondComp>
           </button>
         </form>
         <AsyncCondComp
