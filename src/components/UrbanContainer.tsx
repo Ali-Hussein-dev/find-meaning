@@ -67,7 +67,7 @@ export const UrbanContainer: React.FC = () => {
     >
       <section className="responseContainer">
         <form className="flex items-center justify-between mb-2 border-b">
-          <div className="flex items-center ">
+          <div className="flex items-center gap-x-2">
             <button
               aria-pressed="false"
               disabled={query.length < 1 || urbanResponse.status === 'loading'}
@@ -112,7 +112,7 @@ export const UrbanContainer: React.FC = () => {
             disabled={giphyResponse.isFetching || query.length < 1}
             aria-pressed="false"
             type={isGiphyOpen ? 'button' : 'submit'}
-            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs "
+            className="btn px-2 text-sm focus:ring-2 press-effect text-lightBlue-400 xxs:text-xs"
             onClick={(e) => {
               e.preventDefault();
               if (!isGiphyOpen) {
