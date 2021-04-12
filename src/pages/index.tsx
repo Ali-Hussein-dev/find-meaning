@@ -29,9 +29,7 @@ export const Home = (): JSX.Element => {
           </h1>
           <span className="ml-1 text-xs text-blueGray-400">Demo</span>
         </div>
-        {/* <QueryClientProvider client={queryClient}> */}
         <SearchBar pushRouter={true} />
-        {/* </QueryClientProvider> */}
       </div>
 
       <div className="fixed inset-0 z-0 h-screen bg-gradient-blueGray">
