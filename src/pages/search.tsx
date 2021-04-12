@@ -5,26 +5,15 @@ import {
   CondComp,
 } from '@/components/index';
 import * as React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useRouter } from 'next/router';
-
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: Infinity,
-      cacheTime: Infinity,
-      keepPreviousData: true,
-    },
-  },
-});
 
 const Fallback = () => <div role="alert">Something went wrong!</div>;
 
 const ResponsesContainer = () => {
   const router = useRouter();
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <SearchBar />
       <ErrorBoundary FallbackComponent={Fallback}>
         <WikContainer />
@@ -32,7 +21,7 @@ const ResponsesContainer = () => {
           <UrbanContainer />
         </CondComp>
       </ErrorBoundary>
-    </QueryClientProvider>
+    </>
   );
 };
 //=======================
