@@ -40,7 +40,7 @@ const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
 }) => {
   return (
     <div className="mb-5">
-      <h3 className="font-bold text-lightBlue-500"> {partOfSpeech}</h3>
+      <h3 className="text-xl font-bold text-lightBlue-600"> {partOfSpeech}</h3>
       {children}
     </div>
   );

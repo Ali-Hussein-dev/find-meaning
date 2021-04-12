@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+
 @layer components {
   .bg-gradient-blueGray {
     @apply bg-gradient-to-b from-blueGray-900 to-blueGray-700 via-blueGray-800;
@@ -11,7 +12,7 @@
     @apply transform active:scale-90;
   }
   .btn {
-    @apply py-1 mx-auto font-semibold text-center rounded focus:outline-none hover:shadow disabled:text-blueGray-500 disabled:cursor-not-allowed;
+    @apply py-1 font-semibold text-center rounded focus:outline-none hover:shadow disabled:text-blueGray-500 disabled:cursor-not-allowed;
   }
   .icon-btn {
     @apply p-1 rounded focus:outline-none hover:shadow disabled:text-blueGray-500 disabled:cursor-not-allowed;

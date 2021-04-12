@@ -1,4 +1,9 @@
-import { UrbanContainer, SearchBar, WikContainer } from '@/components/index';
+import {
+  UrbanContainer,
+  SearchBar,
+  WikContainer,
+  CondComp,
+} from '@/components/index';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -17,12 +22,15 @@ export const queryClient = new QueryClient({
 const Fallback = () => <div role="alert">Something went wrong!</div>;
 
 const ResponsesContainer = () => {
+  const router = useRouter();
   return (
     <QueryClientProvider client={queryClient}>
       <SearchBar />
       <ErrorBoundary FallbackComponent={Fallback}>
         <WikContainer />
-        <UrbanContainer />
+        <CondComp baseCond={!!router.query?.q} isFragment>
+          <UrbanContainer />
+        </CondComp>
       </ErrorBoundary>
     </QueryClientProvider>
   );
