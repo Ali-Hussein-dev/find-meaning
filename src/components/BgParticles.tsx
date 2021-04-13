@@ -1,6 +1,8 @@
 import ParticleField from 'react-particles-webgl';
+import { isMobile, isTablet, isIPad13 } from 'react-device-detect';
 const config = {
   showCube: false,
+  velocity: 1.2,
   dimension: '2D',
   boundaryType: 'bounce',
   antialias: false,
@@ -27,7 +29,7 @@ const config = {
     transparency: 0.9,
     shape: 'circle',
     boundingBox: 'canvas',
-    count: 90,
+    count: isMobile ? 20 : isTablet || isIPad13 ? 75 : 100,
     minSize: 20,
     maxSize: 50,
     visible: true,
@@ -43,13 +45,6 @@ const config = {
   },
 };
 //=======================
-export const BgParticles: React.FC<{ velocity?: number; count?: number }> = ({
-  velocity = 1.2,
-  count = 100,
-}) => {
-  // hooks
-  //--------------------------------------
-  // functions
-  //--------------------------------------
-  return <ParticleField config={{ count, velocity, ...config }} />;
+export const BgParticles: React.FC = () => {
+  return <ParticleField config={{ ...config }} />;
 };
