@@ -3,6 +3,7 @@ import {
   SearchBar,
   WikContainer,
   CondComp,
+  FeedbackDrawer,
 } from '@/components/index';
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -30,13 +31,14 @@ const SearchPage: React.FC = () => {
   const router = useRouter();
   //--------------------------------------functions
   return (
-    <main className="flex flex-col items-center min-h-screen px-1 bg-gradient-blueGray">
+    <main className="relative flex flex-col items-center min-h-screen px-1 bg-gradient-blueGray">
       <title>{router.query.q || 'Find Meaning'}</title>
       <div
         data-testid="search-page"
         className="z-10 w-full px-1 sm:w-11/12 md:w-8/12 lg:w-6/12"
       >
         <ResponsesContainer />
+        <FeedbackDrawer />
       </div>
     </main>
   );
