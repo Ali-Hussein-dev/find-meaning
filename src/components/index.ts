@@ -10,4 +10,7 @@ export * from './UrbanContainer';
 export * from './BgParticles';
 export * from './leaf-components/AsyncStatus';
 export * from './leaf-components/HighlightSubstring';
+export * from './leaf-components/FeedbackSubmitted';
+export * from './FeedbackDrawer';
 export * from './Footer';
+
