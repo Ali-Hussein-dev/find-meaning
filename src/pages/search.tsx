@@ -31,7 +31,7 @@ const SearchPage: React.FC = () => {
   const router = useRouter();
   //--------------------------------------functions
   return (
-    <main className="relative flex flex-col items-center min-h-screen px-1 bg-gradient-blueGray">
+    <main className="relative flex flex-col items-center w-full min-h-screen px-1 bg-gradient-blueGray">
       <title>{router.query.q || 'Find Meaning'}</title>
       <div
         data-testid="search-page"
