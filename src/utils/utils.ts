@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import throttle from 'lodash/throttle';
 import store from 'store2';
-import Axios from 'axios';
+import Axios, { AxiosResponse } from 'axios';
 export type keyQueryT = 'urban' | 'lingua' | 'giphy';
 //--------------------------------------1
 export const fetcher_post = async (
@@ -213,3 +213,23 @@ export const initialSuggestions = [
   { w: 'zombie' },
   { w: 'zebra' },
 ];
+//--------------------------------------fetcher_post
+interface DataPost {
+  [key: string]: any;
+}
+export const fetcherPost = async (
+  url: string,
+  data: DataPost,
+): Promise<AxiosResponse> => {
+  let promise;
+  try {
+    promise = await Axios({
+      url: url,
+      method: 'POST',
+      data,
+    });
+    return promise;
+  } catch (error) {
+    console.error(error);
+  }
+};

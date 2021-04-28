@@ -36,10 +36,13 @@
     "@chakra-ui/react": "^1.3.4",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "@headlessui/react": "^1.0.0",
     "axios": "^0.21.1",
     "downshift": "^6.1.2",
+    "email-validator": "^2.0.4",
     "framer-motion": "^3.10.0",
     "loadash": "^1.0.0",
+    "nanoid": "^3.1.22",
     "next": "^10.0.8",
     "react": "^17.0.1",
     "react-device-detect": "^1.17.0",
@@ -47,6 +50,7 @@
     "react-error-boundary": "^3.1.1",
     "react-icons": "^4.2.0",
     "react-query": "^3.12.0",
+    "react-reveal": "^1.2.2",
     "store2": "^2.12.0"
   },
   "devDependencies": {
@@ -85,5 +89,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Ali-Hussein-dev/find-meaning"
+  },
+  "optionalDependencies": {
+    "mongodb": "^3.6.6"
   }
 }
