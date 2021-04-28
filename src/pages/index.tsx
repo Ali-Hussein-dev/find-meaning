@@ -19,14 +19,14 @@ export const Home = (): JSX.Element => {
   }
   storedKey;
   return (
-    <div className="grid h-screen place-items-center text-blueGray-600">
+    <>
       <Head>
         <title>Find Meaning</title>
       </Head>
-      <main className="relative grid w-full min-h-screen place-items-center">
+      <main className="relative grid w-full h-[91vh] place-items-center">
         <QueryClientProvider client={queryClient}>
           <div className="z-10 w-11/12 sm:w-10/12 md:w-6/12">
-            <div className="flex items-center justify-center">
+            <div className="center">
               <h1 className="mb-2 text-2xl font-semibold text-center text-orange-700">
                 Find-Meaning
               </h1>
@@ -35,11 +35,11 @@ export const Home = (): JSX.Element => {
             <SearchBar pushRouter={true} />
           </div>
         </QueryClientProvider>
-        <div className="fixed inset-0 z-0 h-screen bg-gradient-blueGray">
+        <div className="fixed inset-0 z-0 bg-gradient-blueGray">
           <BgParticleDynamic />
         </div>
       </main>
-    </div>
+    </>
   );
 };
 
