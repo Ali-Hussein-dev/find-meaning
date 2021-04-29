@@ -152,7 +152,6 @@ export const UrbanContainer: React.FC = () => {
             </div>
           }
           className="mt-2 border-b border-blueGray-300"
-          p
         >
           <div className="flex flex-col tracking-wide">
             {urban?.map((o, i) => (
