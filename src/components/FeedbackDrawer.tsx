@@ -144,9 +144,12 @@ export const FeedbackDrawer: React.FC = () => {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="btn flex-grow h-8 text-yellow-700 rounded-lg press-effect focus:ring-2 ring-yellow-600 center"
+                  className="btn flex-grow h-8 rounded-lg press-effect focus:ring-2 center text-blueGray-600 ring-yellow-600"
                 >
-                  <MdClear size="30" />
+                  <span className="center gap-x-2">
+                    <MdClear size="20" />
+                    Cancel
+                  </span>
                 </button>
                 {status !== 'success' && (
                   <button
@@ -154,7 +157,7 @@ export const FeedbackDrawer: React.FC = () => {
                     type="submit"
                     name="submit-feedback"
                     data-testid="submit-feedback"
-                    className="btn flex-grow h-8 text-white bg-green-500 rounded-lg disabled:bg-blueGray-200 disabled:text-blueGray-400 disabled:cursor-not-allowed focus:ring-2 ring-yellow-500 center gap-x-1"
+                    className="btn flex-grow h-8 text-white rounded-lg bg-lightBlue-600 disabled:bg-blueGray-200 disabled:text-blueGray-400 disabled:cursor-not-allowed focus:ring-2 center gap-x-1 ring-yellow-600"
                     disabled={
                       !(!!emailValue && !!textareaValue && !!nameValue) ||
                       status === 'loading'
@@ -163,7 +166,10 @@ export const FeedbackDrawer: React.FC = () => {
                     {status === 'loading' ? (
                       <Spinner size="sm" />
                     ) : (
-                      <MdSend size="25" />
+                      <span className="center gap-x-2">
+                        <MdSend size="15" />
+                        Send
+                      </span>
                     )}
                   </button>
                 )}

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { TiChevronRight, TiInfoOutline } from 'react-icons/ti';
-import { Spinner } from '@chakra-ui/react';
+import { Spinner, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { isEmpty } from 'lodash';
 import { useFetch } from 'src/utils';
@@ -152,14 +152,21 @@ export const UrbanContainer: React.FC = () => {
             </div>
           }
           className="mt-2 border-b border-blueGray-300"
+          p
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col tracking-wide">
             {urban?.map((o, i) => (
-              <DefExm
-                key={i}
-                def={o.definition.replace(/\[|\]|\*/gi, '')}
-                exm={o.example.replace(/\[|\]|\*/gi, '').split('\r\n')}
-              />
+              <div key={i}>
+                <DefExm
+                  def={o.definition.replace(/\[|\]|\*/gi, '')}
+                  exm={o.example.replace(/\[|\]|\*/gi, '').split('\r\n')}
+                />
+                {i !== urban.length - 1 && (
+                  <div className="w-32 mx-auto mb-3 bg-gray-300">
+                    <Divider />
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </AsyncCondComp>
