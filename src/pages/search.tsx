@@ -35,7 +35,7 @@ const SearchPage: React.FC = () => {
       <title>{router.query.q || 'Find Meaning'}</title>
       <div
         data-testid="search-page"
-        className="z-10 w-full px-1 sm:w-11/12 md:w-8/12 lg:w-6/12"
+        className="z-10 w-full px-1 sm:w-11/12 md:w-7/12 lg:w-5/12"
       >
         <ResponsesContainer />
         <FeedbackDrawer />

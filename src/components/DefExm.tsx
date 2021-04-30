@@ -5,7 +5,7 @@ export const DefExm: React.FC<{
   context?: string[];
 }> = ({ def, exm, context }) => {
   return (
-    <div className="w-11/12 mb-3 text-blueGray-600">
+    <div className="mb-3 text-blueGray-600">
       <p>
         <span className=" text-lightBlue-500">{context?.join()} </span>
         {def}

@@ -6,7 +6,7 @@
     @apply bg-gradient-to-b from-blueGray-900 to-blueGray-700 via-blueGray-800;
   }
   .responseContainer {
-    @apply py-3 pl-2 pr-1 mb-3 rounded-lg shadow-lg text-trueGray-600 bg-blueGray-50;
+    @apply px-2 py-3 mb-3 font-light leading-5 tracking-normal rounded-lg shadow-lg text-trueGray-600 bg-blueGray-50;
   }
   .press-effect {
     @apply transform active:scale-90;
