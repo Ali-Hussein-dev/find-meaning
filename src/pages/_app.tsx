@@ -32,7 +32,7 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <link rel="icon" href="/favicon.ico" />
-        <div className="z-10 grid min-h-screen place-items-center ">
+        <div className="z-10 min-h-screen">
           <Component {...pageProps} />
           <Footer />
         </div>
