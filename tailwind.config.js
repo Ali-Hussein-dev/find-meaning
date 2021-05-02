@@ -9,6 +9,8 @@ module.exports = {
         trueGray: colors.trueGray,
         lightBlue: colors.lightBlue,
         orange: colors.orange,
+        amber: colors.amber,
+        emerald: colors.emerald,
         fuchsia: colors.fuchsia,
       },
       screens: {
