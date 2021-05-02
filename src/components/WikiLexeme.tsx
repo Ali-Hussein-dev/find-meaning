@@ -26,12 +26,12 @@ const FormsContainer: React.FC<{ baseCond: boolean }> = ({
 }) => (
   <CondComp
     baseCond={baseCond}
-    className="flex px-1 py-1 font-semibold rounded xxs:flex-col gap-x-2 bg-blueGray-100 text-blueGray-600"
+    className="flex flex-wrap items-start font-semibold rounded gap-x-2 text-blueGray-600"
   >
-    <span className="font-light text-blueGray-600">Forms:</span>
-    <span className="flex flex-wrap items-center gap-x-4 xxs:text-md">
-      {children}
+    <span className="px-3 py-[0.10rem] font-semibold rounded-full text-emerald-700 bg-emerald-100">
+      forms
     </span>
+    {children}
   </CondComp>
 );
 const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
@@ -40,7 +40,11 @@ const LexemeContainer: React.FC<{ partOfSpeech: string; children: any }> = ({
 }) => {
   return (
     <div className="mb-5">
-      <h3 className="text-xl font-bold text-lightBlue-600"> {partOfSpeech}</h3>
+      <h3 className="mb-2">
+        <span className="px-3 font-semibold rounded-full bg-lightBlue-100 text-lightBlue-700 ">
+          {partOfSpeech}
+        </span>
+      </h3>
       {children}
     </div>
   );
