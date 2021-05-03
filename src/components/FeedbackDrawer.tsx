@@ -19,6 +19,7 @@ import {
   DrawerOverlay,
   DrawerContent,
 } from '@chakra-ui/react';
+import Zoom from 'react-reveal/Zoom';
 //--------------------------------------setIdentiefer
 (function () {
   if (!store.get('identiefer')) {
@@ -178,16 +179,18 @@ export const FeedbackDrawer: React.FC = () => {
           </DrawerOverlay>
         </Drawer>
         {!isOpen ? (
-          <label>
-            <button
-              data-testid="display-feedback"
-              type="button"
-              onClick={onOpen}
-              className="icon-btn self-end p-2 text-white rounded-xl bg-gradient-to-l from-lightBlue-600 to-lightBlue-500 press-effect focus:ring-2 ring-yellow-600"
-            >
-              <MdFeedback size="35" />
-            </button>
-          </label>
+          <Zoom>
+            <label>
+              <button
+                data-testid="display-feedback"
+                type="button"
+                onClick={onOpen}
+                className="icon-btn self-end p-2 text-white shadow-xl rounded-xl bg-gradient-to-l from-lightBlue-700 to-lightBlue-500 press-effect focus:ring-2 ring-yellow-600"
+              >
+                <MdFeedback size="35" />
+              </button>
+            </label>
+          </Zoom>
         ) : null}
       </div>
     )

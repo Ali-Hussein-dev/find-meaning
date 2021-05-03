@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { TiChevronRight, TiInfoOutline } from 'react-icons/ti';
-import { Spinner, Divider } from '@chakra-ui/react';
+import { SkeletonText, Spinner, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { isEmpty } from 'lodash';
 import { useFetch } from 'src/utils';
@@ -152,6 +152,13 @@ export const UrbanContainer: React.FC = () => {
             </div>
           }
           className="mt-2 border-b border-blueGray-300"
+          customLoadingComp={
+            <div className="flex flex-col pt-4 gap-y-4">
+              <SkeletonText noOfLines={3} spacing="2" />
+              <SkeletonText noOfLines={4} spacing="2" />
+              <SkeletonText noOfLines={3} spacing="2" />
+            </div>
+          }
         >
           <div className="flex flex-col tracking-wide">
             {urban?.map((o, i) => (

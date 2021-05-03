@@ -1,4 +1,4 @@
-import { Spinner, Image } from '@chakra-ui/react';
+import { Skeleton, Image } from '@chakra-ui/react';
 import * as React from 'react';
 //=======================
 export const Gifs: React.FC<{ list: any[] }> = ({ list }) => {
@@ -18,12 +18,8 @@ export const Gifs: React.FC<{ list: any[] }> = ({ list }) => {
               src={o.images?.fixed_height?.webp}
               className="flex-shrink-0 overflow-hidden rounded w-28 h-28"
               fallback={
-                <div
-                  className="grid flex-shrink-0 rounded w-28 h-28 bg-blueGray-100 place-items-center"
-                  aria-label="image-fallback"
-                  role=""
-                >
-                  <Spinner className="text-lightBlue-300" />
+                <div className="rounded w-28 h-28 " aria-label="image-fallback">
+                  <Skeleton height="7rem" width="7rem" />
                 </div>
               }
             />

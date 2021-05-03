@@ -11,6 +11,7 @@ import {
   EmptyResponseUI,
   AsyncCondComp,
 } from '@/components/index';
+import { SkeletonText } from '@chakra-ui/react';
 
 //=======================
 export const WikContainer: React.FC = () => {
@@ -40,6 +41,9 @@ export const WikContainer: React.FC = () => {
           customIdleComp={<IdleUI />}
           customEmptyResponse={
             <EmptyResponseUI textPlaceholder="No definition has been found" />
+          }
+          customLoadingComp={
+            <SkeletonText mb="4" mt="4" noOfLines={4} spacing="2" />
           }
         >
           <CondComp
