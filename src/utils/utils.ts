@@ -51,14 +51,14 @@ export const getSuggestions = (
   let list = store.get(key) || [];
   inputValue = inputValue.trim().toLowerCase();
   if (inputValue === '' && list.length > 7) {
-    list.length = 7;
+    list = list.slice(Math.max(list.length - 7, 1)).reverse();
     return list;
   }
   list = list.filter((o) => o?.w.startsWith(inputValue)).sort(compare);
   if (list.length > 7) {
-    list.length = 7;
+    list = list.slice(Math.max(list.length - 7, 1)).reverse();
   }
-  return list;
+  return list.reverse();
 };
 //--------------------------------------4-1-throttledGetSuggestion
 export const throttledGetSuggestions = throttle(getSuggestions, 5);
