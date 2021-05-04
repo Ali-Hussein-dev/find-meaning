@@ -10,8 +10,8 @@ import {
   WikiLexeme,
   EmptyResponseUI,
   AsyncCondComp,
+  CustomSkeleton,
 } from '@/components/index';
-import { SkeletonText } from '@chakra-ui/react';
 
 //=======================
 export const WikContainer: React.FC = () => {
@@ -43,7 +43,9 @@ export const WikContainer: React.FC = () => {
             <EmptyResponseUI textPlaceholder="No definition has been found" />
           }
           customLoadingComp={
-            <SkeletonText mb="4" mt="4" noOfLines={4} spacing="2" />
+            <div className="w-full mt-3">
+              <CustomSkeleton />
+            </div>
           }
         >
           <CondComp
