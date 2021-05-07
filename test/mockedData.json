@@ -2730,5 +2730,329 @@
       }
     ]
   },
-  "urbanResponseEmpty": { "list": [] }
+  "urbanResponseEmpty": { "list": [] },
+  "conjugatedFormsResponse": {
+    "result": "OK",
+    "conjugated_forms": [
+      ["Infinitive", "to go"],
+      ["Simple Past", "went"],
+      ["Past Participle", "gone"]
+    ],
+    "conjugation_tables": {
+      "conditional": [
+        {
+          "heading": "conditional present",
+          "forms": [
+            ["I", "would go"],
+            ["you", "would go"],
+            ["he/she/it", "would go"],
+            ["we", "would go"],
+            ["you", "would go"],
+            ["they", "would go"]
+          ]
+        },
+        {
+          "heading": "conditional present progressive",
+          "forms": [
+            ["I", "would be going"],
+            ["you", "would be going"],
+            ["he/she/it", "would be going"],
+            ["we", "would be going"],
+            ["you", "would be going"],
+            ["they", "would be going"]
+          ]
+        },
+        {
+          "heading": "conditional perfect",
+          "forms": [
+            ["I", "would have gone"],
+            ["you", "would have gone"],
+            ["he/she/it", "would have gone"],
+            ["we", "would have gone"],
+            ["you", "would have gone"],
+            ["they", "would have gone"]
+          ]
+        },
+        {
+          "heading": "conditional perfect progressive",
+          "forms": [
+            ["I", "would have been going"],
+            ["you", "would have been going"],
+            ["he/she/it", "would have been going"],
+            ["we", "would have been going"],
+            ["you", "would have been going"],
+            ["they", "would have been going"]
+          ]
+        }
+      ],
+      "indicative": [
+        {
+          "heading": "simple present",
+          "forms": [
+            ["I", "go"],
+            ["you", "go"],
+            ["he/she/it", "goes"],
+            ["we", "go"],
+            ["you", "go"],
+            ["they", "go"]
+          ]
+        },
+        {
+          "heading": "present progressive",
+          "forms": [
+            ["I", "am going"],
+            ["you", "are going"],
+            ["he/she/it", "is going"],
+            ["we", "are going"],
+            ["you", "are going"],
+            ["they", "are going"]
+          ]
+        },
+        {
+          "heading": "present perfect",
+          "forms": [
+            ["I", "have gone"],
+            ["you", "have gone"],
+            ["he/she/it", "has gone"],
+            ["we", "have gone"],
+            ["you", "have gone"],
+            ["they", "have gone"]
+          ]
+        },
+        {
+          "heading": "present perfect progressive",
+          "forms": [
+            ["I", "have been going"],
+            ["you", "have been going"],
+            ["he/she/it", "has been going"],
+            ["we", "have been going"],
+            ["you", "have been going"],
+            ["they", "have been going"]
+          ]
+        },
+        {
+          "heading": "simple past",
+          "forms": [
+            ["I", "went"],
+            ["you", "went"],
+            ["he/she/it", "went"],
+            ["we", "went"],
+            ["you", "went"],
+            ["they", "went"]
+          ]
+        },
+        {
+          "heading": "past progressive",
+          "forms": [
+            ["I", "was going"],
+            ["you", "were going"],
+            ["he/she/it", "was going"],
+            ["we", "were going"],
+            ["you", "were going"],
+            ["they", "were going"]
+          ]
+        },
+        {
+          "heading": "past perfect",
+          "forms": [
+            ["I", "had gone"],
+            ["you", "had gone"],
+            ["he/she/it", "had gone"],
+            ["we", "had gone"],
+            ["you", "had gone"],
+            ["they", "had gone"]
+          ]
+        },
+        {
+          "heading": "past perfect progressive",
+          "forms": [
+            ["I", "had been going"],
+            ["you", "had been going"],
+            ["he/she/it", "had been going"],
+            ["we", "had been going"],
+            ["you", "had been going"],
+            ["they", "had been going"]
+          ]
+        },
+        {
+          "heading": "simple future",
+          "forms": [
+            ["I", "will go"],
+            ["you", "will go"],
+            ["he/she/it", "will go"],
+            ["we", "will go"],
+            ["you", "will go"],
+            ["they", "will go"]
+          ]
+        },
+        {
+          "heading": "future progressive",
+          "forms": [
+            ["I", "will be going"],
+            ["you", "will be going"],
+            ["he/she/it", "will be going"],
+            ["we", "will be going"],
+            ["you", "will be going"],
+            ["they", "will be going"]
+          ]
+        },
+        {
+          "heading": "future perfect",
+          "forms": [
+            ["I", "will have gone"],
+            ["you", "will have gone"],
+            ["he/she/it", "will have gone"],
+            ["we", "will have gone"],
+            ["you", "will have gone"],
+            ["they", "will have gone"]
+          ]
+        },
+        {
+          "heading": "future perfect progressive",
+          "forms": [
+            ["I", "will have been going"],
+            ["you", "will have been going"],
+            ["he/she/it", "will have been going"],
+            ["we", "will have been going"],
+            ["you", "will have been going"],
+            ["they", "will have been going"]
+          ]
+        }
+      ],
+      "passive": [
+        {
+          "heading": "passive simple present",
+          "forms": [
+            ["I", "am gone"],
+            ["you", "are gone"],
+            ["he/she/it", "is gone"],
+            ["we", "are gone"],
+            ["you", "are gone"],
+            ["they", "are gone"]
+          ]
+        },
+        {
+          "heading": "passive present progressive",
+          "forms": [
+            ["I", "am being gone"],
+            ["you", "are being gone"],
+            ["he/she/it", "is being gone"],
+            ["we", "are being gone"],
+            ["you", "are being gone"],
+            ["they", "are being gone"]
+          ]
+        },
+        {
+          "heading": "passive present perfect",
+          "forms": [
+            ["I", "have been gone"],
+            ["you", "have been gone"],
+            ["he/she/it", "has been gone"],
+            ["we", "have been gone"],
+            ["you", "have been gone"],
+            ["they", "have been gone"]
+          ]
+        },
+        {
+          "heading": "passive present perfect progressive",
+          "forms": [
+            ["I", "have been being gone"],
+            ["you", "have been being gone"],
+            ["he/she/it", "has been being gone"],
+            ["we", "have been being gone"],
+            ["you", "have been being gone"],
+            ["they", "have been being gone"]
+          ]
+        },
+        {
+          "heading": "passive simple past",
+          "forms": [
+            ["I", "was gone"],
+            ["you", "were gone"],
+            ["he/she/it", "was gone"],
+            ["we", "were gone"],
+            ["you", "were gone"],
+            ["they", "were gone"]
+          ]
+        },
+        {
+          "heading": "passive past progressive",
+          "forms": [
+            ["I", "was being gone"],
+            ["you", "were being gone"],
+            ["he/she/it", "was being gone"],
+            ["we", "were being gone"],
+            ["you", "were being gone"],
+            ["they", "were being gone"]
+          ]
+        },
+        {
+          "heading": "passive past perfect",
+          "forms": [
+            ["I", "had been gone"],
+            ["you", "had been gone"],
+            ["he/she/it", "had been gone"],
+            ["we", "had been gone"],
+            ["you", "had been gone"],
+            ["they", "had been gone"]
+          ]
+        },
+        {
+          "heading": "passive past perfect progressive",
+          "forms": [
+            ["I", "had been being gone"],
+            ["you", "had been being gone"],
+            ["he/she/it", "had been being gone"],
+            ["we", "had been being gone"],
+            ["you", "had been being gone"],
+            ["they", "had been being gone"]
+          ]
+        },
+        {
+          "heading": "passive simple future",
+          "forms": [
+            ["I", "will be gone"],
+            ["you", "will be gone"],
+            ["he/she/it", "will be gone"],
+            ["we", "will be gone"],
+            ["you", "will be gone"],
+            ["they", "will be gone"]
+          ]
+        },
+        {
+          "heading": "passive future progressive",
+          "forms": [
+            ["I", "will be being gone"],
+            ["you", "will be being gone"],
+            ["he/she/it", "will be being gone"],
+            ["we", "will be being gone"],
+            ["you", "will be being gone"],
+            ["they", "will be being gone"]
+          ]
+        },
+        {
+          "heading": "passive future perfect",
+          "forms": [
+            ["I", "will have been gone"],
+            ["you", "will have been gone"],
+            ["he/she/it", "will have been gone"],
+            ["we", "will have been gone"],
+            ["you", "will have been gone"],
+            ["they", "will have been gone"]
+          ]
+        },
+        {
+          "heading": "passive future perfect progressive",
+          "forms": [
+            ["I", "will have been being gone"],
+            ["you", "will have been being gone"],
+            ["he/she/it", "will have been being gone"],
+            ["we", "will have been being gone"],
+            ["you", "will have been being gone"],
+            ["they", "will have been being gone"]
+          ]
+        }
+      ]
+    }
+  }
 }
