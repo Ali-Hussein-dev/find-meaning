@@ -1,6 +1,11 @@
-import { storeSuggestion, getSuggestions } from 'src/utils/index';
+import {
+  storeSuggestion,
+  getSuggestions,
+  isVerb,
+  getContinousForm,
+} from 'src/utils/index';
 import store from 'store2';
-
+import mockedData from '@/test/mockedData.json';
 store.get = jest.fn(() => {
   return [
     { w: 'doom' },
@@ -44,8 +49,22 @@ describe('getSuggestions', () => {
 });
 
 describe('StoreSuggestions', () => {
-  test('Should throw error WHEN failed to add new suggestion', () => {
+  it('Should throw error WHEN failed to add new suggestion', () => {
     const storedSuggestion = () => storeSuggestion('wik', 'dices');
     expect(() => storedSuggestion()).toThrow();
   });
+});
+
+describe('Conjugated Forms', () => {
+  it("Should return true WHEN query is a verb 'go'", () => {
+    const go = isVerb(mockedData.wikiResponse);
+    expect(go).toBe(true);
+  });
+  it("Should return continous form 'going'", async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const going = await getContinousForm(mockedData.conjugatedFormsResponse);
+    expect(going).toBe('going');
+  });
+  //--------------------------------------
 });

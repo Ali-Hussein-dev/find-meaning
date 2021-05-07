@@ -24,11 +24,21 @@ export const fetcher_post = async (
   }
 };
 //--------------------------------------2
-export const fetcher_get = async (url: string, headers = {}): Promise<any> => {
+interface HeaderParamsT {
+  [key: string]: string;
+}
+interface FetcherGetParams {
+  url: string;
+  headers?: HeaderParamsT;
+  params?: HeaderParamsT;
+}
+export const fetcher_get = async (config: FetcherGetParams): Promise<any> => {
+  const { url, headers, params } = config;
   return await Axios({
     url: url,
     method: 'GET',
-    headers: headers,
+    headers: headers || {},
+    params,
   })
     .then((response) => {
       return response.data;
@@ -232,4 +242,35 @@ export const fetcherPost = async (
   } catch (error) {
     console.error(error);
   }
+};
+
+/**
+ * HOW TO GET CONJUGATED FORMS
+ * first check IF query is a verb,
+ *    WHEN true => call the API ELSE do not call
+ * second check IF there are conjugated forms to the query,
+ *    WHEN true => assign the results to the response obj ELSE: do not
+ */
+//--------------------------------------conjugated-forms-API -> isVerb
+export const isVerb = (lingua: any = {}): boolean => {
+  let isVerb = false;
+  lingua.entries[0].lexemes.map((o) => {
+    if (o.partOfSpeech === 'verb') {
+      isVerb = true;
+      return isVerb;
+    }
+  });
+  return isVerb;
+};
+//--------------------------------------conjugated-forms-API -> getContinousForm
+export const getContinousForm = async (
+  conjugatedForms: any = {},
+): Promise<string> => {
+  const continousForm = conjugatedForms.conjugation_tables.indicative.filter(
+    (o) => o.heading === 'present progressive',
+  );
+  const formStr = continousForm[0].forms[0][1]
+    .split(' ')
+    .slice(continousForm.length)[0];
+  return formStr;
 };

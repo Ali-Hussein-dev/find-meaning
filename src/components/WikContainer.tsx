@@ -23,9 +23,11 @@ export const WikContainer: React.FC = () => {
     'lingua',
     query.length <= 1 ? false : true,
   );
-  const lingua = linguaResponse.data?.data;
+  const lingua = linguaResponse.data?.data.lingua;
   const islinguaResponeEmpty = isEmpty(lingua?.entries);
   const lexemes = lingua?.entries?.[0]?.lexemes || [];
+  const conjugatedFormsResponse = linguaResponse.data?.data;
+
   //--------------------------------------functions
   return (
     <ErrorBoundary
@@ -66,7 +68,11 @@ export const WikContainer: React.FC = () => {
             </div>
           </CondComp>
           {lexemes.map((o, i) => (
-            <WikiLexeme key={i} lexeme={o} />
+            <WikiLexeme
+              key={i}
+              lexeme={o}
+              conjugatedFormsData={conjugatedFormsResponse?.conjugatedForms}
+            />
           ))}
           <CondComp baseCond={!islinguaResponeEmpty}>
             <span className="text-sm italic text-trueGray-500">
