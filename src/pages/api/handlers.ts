@@ -1,28 +1,35 @@
 /* eslint-disable no-fallthrough */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { DictionaryReqObj, giphy } from './API_Data';
-import { fetcher_get } from 'src/utils/index';
+import { fetcher_get, getContinousForm, isVerb } from 'src/utils/index';
 
-const urban = new DictionaryReqObj(
+const urbanConfig = new DictionaryReqObj(
   'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=',
   process.env.URBAN_HOST,
   process.env.rapidapi_key,
 );
-const lingua = new DictionaryReqObj(
+const linguaConfig = new DictionaryReqObj(
   'https://lingua-robot.p.rapidapi.com/language/v1/entries/en/',
   process.env.LINGUA_HOST,
   process.env.rapidapi_key,
 );
+const conjugatedFormsConfig = new DictionaryReqObj(
+  'https://linguatools-conjugations.p.rapidapi.com/conjugate/',
+  process.env.CONJUGATIONS_HOST,
+  process.env.rapidapi_key,
+);
 
-const response = {
-  urban: undefined,
-  giphy: undefined,
-  lingua: undefined,
-};
+//--------------------------------------handler
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<any> => {
+  const response = {
+    urban: undefined,
+    giphy: undefined,
+    lingua: undefined,
+    conjugatedForms: undefined,
+  };
   if (req.method === 'POST') {
     const { query, keyQuery } = req.body;
     if (query.length === 0) {
@@ -30,38 +37,41 @@ const handler = async (
     }
     switch (keyQuery) {
       case 'urban':
-        try {
-          response.urban = await fetcher_get(
-            urban.getUrl(query),
-            urban.headers,
-          );
-          response.urban?.list?.sort((a, b) => b.thumbs_up - a.thumbs_up);
-          if (response.urban?.list?.length > 5) {
-            response.urban.list.length = 5;
-          }
-          res.status(200).end(JSON.stringify(response.urban));
-        } catch (error) {
-          console.error(error);
+        response.urban = await fetcher_get({
+          url: urbanConfig.getUrl(query),
+          headers: urbanConfig.headers,
+        });
+        response.urban?.list?.sort((a, b) => b.thumbs_up - a.thumbs_up);
+        if (response.urban?.list?.length > 5) {
+          response.urban.list.length = 5;
         }
+        res.status(200).end(JSON.stringify(response.urban));
         break;
       case 'lingua':
-        try {
-          response.lingua = await fetcher_get(
-            lingua.getUrl(query),
-            lingua.headers,
-          );
-          res.status(200).end(JSON.stringify(response.lingua));
-        } catch (error) {
-          console.error(error);
+        response.lingua = await fetcher_get({
+          url: linguaConfig.getUrl(query),
+          headers: linguaConfig.headers,
+        });
+        if (isVerb(await response.lingua)) {
+          const conjugatedFormsRes = await fetcher_get({
+            url: conjugatedFormsConfig.baseUrl,
+            headers: conjugatedFormsConfig.headers,
+            params: { verb: query },
+          });
+          if (conjugatedFormsRes.result === 'OK') {
+            response.conjugatedForms = [
+              ['Infinitive', conjugatedFormsRes.conjugated_forms[0][1]],
+              ['Simple past', conjugatedFormsRes.conjugated_forms[1][1]],
+              ['Past participle', conjugatedFormsRes.conjugated_forms[2][1]],
+              ['Continous', await getContinousForm(conjugatedFormsRes)],
+            ];
+          }
         }
+        res.status(200).end(JSON.stringify(response));
         break;
       case 'giphy':
-        try {
-          response.giphy = await fetcher_get(giphy.getUrl(query));
-          res.status(200).end(JSON.stringify(response.giphy?.data));
-        } catch (error) {
-          console.error(error);
-        }
+        response.giphy = await fetcher_get({ url: giphy.getUrl(query) });
+        res.status(200).end(JSON.stringify(response.giphy?.data));
         break;
       default:
         res.status(404).send(`${keyQuery} is not available`);
