@@ -1,12 +1,16 @@
-import { FormsContainer, ConjugatedForms } from '@/components/index';
+import {
+  FormsContainer,
+  ConjugatedForms,
+  ConjugatedFormsT,
+} from '@/components/index';
 import { render } from '../testUtils';
 describe('Conjugated Forms', () => {
-  const forms = {
-    infinitive: 'to play',
-    simplePast: 'played',
-    pastParticiple: 'played',
-    continous: 'playing',
-  };
+  const forms: ConjugatedFormsT = [
+    ['Infinitive', 'to play'],
+    ['Simple past', 'played'],
+    ['Past participle', 'played'],
+    ['Continous', 'playing'],
+  ];
   it('Should be in the document', () => {
     const { container } = render(
       <FormsContainer baseCond={true}>
@@ -22,7 +26,7 @@ describe('Conjugated Forms', () => {
         <ConjugatedForms forms={forms} />
       </FormsContainer>,
     );
-    expect(container).not.toHaveTextContent(forms.infinitive);
+    expect(container).not.toHaveTextContent('Infinitive');
   });
   //--------------------------------------
 });
