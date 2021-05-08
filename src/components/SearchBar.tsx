@@ -138,7 +138,7 @@ export const SearchBar: React.FC<{ pushRouter?: boolean }> = ({
               isFragment
             >
               <ul
-                {...getMenuProps}
+                {...getMenuProps()}
                 className="absolute z-30 w-full py-2 text-lg tracking-wide rounded-b-lg shadow-lg b bg-blueGray-800 top-12 text-lightBlue-300"
               >
                 {filteredSuggestions.map((o, i) => {
@@ -153,7 +153,7 @@ export const SearchBar: React.FC<{ pushRouter?: boolean }> = ({
                           ? 'bg-blueGray-600 text-lightBlue-100'
                           : ''
                       } flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default`}
-                      {...getItemProps({ item: o, index: i })}
+                      {...getItemProps({ item: o, index: i, key: o.w })}
                     >
                       <HighlightSubstring
                         inputValue={inputValue}
