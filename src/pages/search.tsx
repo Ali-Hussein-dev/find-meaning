@@ -11,8 +11,9 @@ import { useRouter } from 'next/router';
 import Slide from 'react-reveal/Slide';
 const Fallback = () => <div role="alert">Something went wrong!</div>;
 
-const ResponsesContainer = () => {
-  const router = useRouter();
+const ResponsesContainer: React.FC<{ isInitial: boolean }> = ({
+  isInitial,
+}) => {
   return (
     <>
       <SearchBar />
@@ -20,7 +21,7 @@ const ResponsesContainer = () => {
         <Slide top duration={200}>
           <WikContainer />
         </Slide>
-        <CondComp baseCond={!!router.query?.q} isFragment>
+        <CondComp baseCond={isInitial} isFragment>
           <Slide top duration={300}>
             <UrbanContainer />
           </Slide>
@@ -36,12 +37,12 @@ const SearchPage: React.FC = () => {
   //--------------------------------------functions
   return (
     <main className="relative flex flex-col items-center w-full min-h-screen px-1 bg-blueGray-800 bg-pattern">
-      <title>{router.query.q || 'Find Meaning'}</title>
+      <title>look up {`: ${router.query.q}`} </title>
       <div
         data-testid="search-page"
-        className="w-full px-1 sm:w-11/12 md:w-[560px] lg:w-[560px] "
+        className="z-10 w-full px-1 sm:w-11/12 md:w-7/12 lg:w-5/12"
       >
-        <ResponsesContainer />
+        <ResponsesContainer isInitial={!!router.query?.q} />
         <FeedbackDrawer />
       </div>
     </main>
