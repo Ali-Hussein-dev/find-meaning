@@ -8,10 +8,6 @@ export const Input: React.FC<InputProps> = ({
   cn = 'bg-blueGray-800 text-blueGray-200 focus:opacity-90 focus:bg-blueGray-700',
   ...props
 }) => {
-  // hooks
-  //--------------------------------------
-  // functions
-  //--------------------------------------
   return (
     <>
       <label htmlFor="search-input" />
@@ -21,7 +17,7 @@ export const Input: React.FC<InputProps> = ({
         lang="en"
         name="search-input"
         aria-label="search-input"
-        placeholder="start searching..."
+        placeholder="start looking up words..."
         className={`w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none ${cn}`}
         {...props}
       />
