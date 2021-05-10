@@ -3,27 +3,27 @@ import throttle from 'lodash/throttle';
 import store from 'store2';
 import Axios, { AxiosResponse } from 'axios';
 export type keyQueryT = 'urban' | 'lingua' | 'giphy';
-//--------------------------------------1
-export const fetcher_post = async (
-  query: string,
-  keyQuery: keyQueryT,
-): Promise<any> => {
+//--------------------------------------fetcher_post
+interface DataPost {
+  [key: string]: any;
+}
+export const fetcherPost = async (
+  url: string,
+  data: DataPost,
+): Promise<AxiosResponse> => {
   let promise;
   try {
     promise = await Axios({
-      url: '/api/handlers',
+      url: url,
       method: 'POST',
-      data: {
-        query,
-        keyQuery,
-      },
+      data,
     });
     return promise;
   } catch (error) {
     console.error(error);
   }
 };
-//--------------------------------------2
+//--------------------------------------fetcher_get
 interface HeaderParamsT {
   [key: string]: string;
 }
@@ -47,13 +47,13 @@ export const fetcher_get = async (config: FetcherGetParams): Promise<any> => {
       console.error(error);
     });
 };
-//--------------------------------------3-compare
+//---------------------------------------compare
 const compare = (a, b) => {
   a = a.w;
   b = b.w;
   return a < b ? -1 : a > b ? 1 : 0;
 };
-//--------------------------------------4-getSuggestion
+//---------------------------------------getSuggestion
 export const getSuggestions = (
   key: string,
   inputValue: string,
@@ -70,9 +70,9 @@ export const getSuggestions = (
   }
   return list.reverse();
 };
-//--------------------------------------4-1-throttledGetSuggestion
+//---------------------------------------throttledGetSuggestion
 export const throttledGetSuggestions = throttle(getSuggestions, 5);
-//--------------------------------------5-storeSuggestion
+//---------------------------------------storeSuggestion
 interface Suggestion {
   w: string;
 }
@@ -223,26 +223,6 @@ export const initialSuggestions = [
   { w: 'zombie' },
   { w: 'zebra' },
 ];
-//--------------------------------------fetcher_post
-interface DataPost {
-  [key: string]: any;
-}
-export const fetcherPost = async (
-  url: string,
-  data: DataPost,
-): Promise<AxiosResponse> => {
-  let promise;
-  try {
-    promise = await Axios({
-      url: url,
-      method: 'POST',
-      data,
-    });
-    return promise;
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 /**
  * HOW TO GET CONJUGATED FORMS
