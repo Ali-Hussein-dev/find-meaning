@@ -3,12 +3,17 @@ import {
   SearchBar,
   WikContainer,
   CondComp,
-  FeedbackDrawer,
 } from '@/components/index';
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useRouter } from 'next/router';
 import Slide from 'react-reveal/Slide';
+import dynamic from 'next/dynamic';
+
+const DynamicFeedbackDrawer = dynamic(
+  () => import('@/components/index').then((index) => index.FeedbackDrawer),
+  { ssr: false },
+);
 const Fallback = () => <div role="alert">Something went wrong!</div>;
 
 const ResponsesContainer: React.FC<{ isInitial: boolean }> = ({
@@ -43,7 +48,7 @@ const SearchPage: React.FC = () => {
         className="z-10 w-full px-1 sm:w-11/12 md:w-7/12 lg:w-5/12"
       >
         <ResponsesContainer isInitial={!!router.query?.q} />
-        <FeedbackDrawer />
+        {!!router.query?.q && <DynamicFeedbackDrawer />}
       </div>
     </main>
   );
