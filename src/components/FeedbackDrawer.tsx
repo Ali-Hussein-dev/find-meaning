@@ -5,7 +5,7 @@ import { isMobile } from 'react-device-detect';
 import { fetcherPost } from 'src/utils';
 import { useQuery } from 'react-query';
 import { CondComp, FeedbackSubmitted } from '@/components/index';
-import { MdClear, MdFeedback, MdSend } from 'react-icons/md';
+import { MdClear, MdSend } from 'react-icons/md';
 import {
   Input,
   Textarea,
@@ -19,7 +19,7 @@ import {
   DrawerOverlay,
   DrawerContent,
 } from '@chakra-ui/react';
-import Zoom from 'react-reveal/Zoom';
+
 //--------------------------------------setIdentiefer
 (function () {
   if (!store.get('identiefer')) {
@@ -79,7 +79,7 @@ export const FeedbackDrawer: React.FC = () => {
   //======================================return
   return (
     feedbackCount < 3 && (
-      <div className="fixed flex flex-col bottom-3 right-2">
+      <div className="w-full mb-3 text-center">
         <Drawer
           isOpen={isOpen}
           placement={isMobile ? 'bottom' : 'right'}
@@ -178,20 +178,13 @@ export const FeedbackDrawer: React.FC = () => {
             </DrawerContent>
           </DrawerOverlay>
         </Drawer>
-        {!isOpen ? (
-          <Zoom>
-            <label>
-              <button
-                data-testid="display-feedback"
-                type="button"
-                onClick={onOpen}
-                className="icon-btn self-end p-2 text-white shadow-xl rounded-xl bg-gradient-to-l from-lightBlue-700 to-lightBlue-500 press-effect focus:ring-2 ring-yellow-600"
-              >
-                <MdFeedback size="35" />
-              </button>
-            </label>
-          </Zoom>
-        ) : null}
+        <button
+          type="button"
+          onClick={onOpen}
+          className="p-1 font-semibold underline rounded focus:outline-none text-blueGray-300 focus:ring-2 ring-lightBlue-500 hover:text-lightBlue-500"
+        >
+          Was this helpful?
+        </button>
       </div>
     )
   );
