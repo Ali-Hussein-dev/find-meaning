@@ -67,4 +67,9 @@ describe('Conjugated Forms', () => {
     expect(going).toBe('going');
   });
   //--------------------------------------
+  it('Should return false WHEN wik response is empty', () => {
+    const emptyResponse = isVerb(mockedData.wikiResponseEmpty);
+    expect(emptyResponse).toBe(false);
+  });
+  //--------------------------------------
 });
