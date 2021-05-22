@@ -23,18 +23,27 @@ describe('Search Bar', () => {
     userEvent.click(submit);
   });
   //--------------------------------------
-  it('Del button: hidden, type, displayed, clicked, hidden', () => {
+  it('Del button visibility & functionality', () => {
+    /**
+     * del btn visibility
+     * click -> delete input value and focus input
+     */
     const { container } = render(<SearchBar />);
     const input = container.querySelector('input');
     let del = screen.queryByTestId('del-btn');
 
     expect(del).toBeNull();
+
     userEvent.type(input, 'value');
     expect(input).toHaveValue('value');
+
     del = screen.getByTestId('del-btn');
     expect(del).toBeVisible();
+
     userEvent.click(del);
     expect(input).toHaveValue('');
+    expect(document.activeElement).toEqual(input);
+
     del = screen.queryByTestId('del-btn');
     expect(del).toBeNull();
   });
