@@ -233,6 +233,7 @@ export const initialSuggestions = [
  */
 //--------------------------------------conjugated-forms-API -> isVerb
 export const isVerb = (lingua: any = {}): boolean => {
+  if (lingua.entries.length < 1) return false;
   let isVerb = false;
   lingua.entries[0].lexemes.map((o) => {
     if (o.partOfSpeech === 'verb') {
