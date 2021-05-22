@@ -3,109 +3,222 @@
 exports[`Home page Home page 1`] = `
 <DocumentFragment>
   <main
-    class="relative grid w-full min-h-screen place-items-center text-blueGray-600"
+    class="relative grid w-full h-[93vh] place-items-center bg-blueGray-800"
   >
     <div
-      class="z-10 w-11/12 sm:w-10/12 md:w-6/12"
+      class="w-full sm:w-[640px]"
     >
       <div
-        class="flex items-center justify-center"
+        class="center"
       >
         <h1
           class="mb-2 text-2xl font-semibold text-center text-orange-700"
         >
-          Find-Meaning
+          Find Meaning
         </h1>
         <span
           class="ml-1 text-xs text-blueGray-400"
         >
-          Demo
+          beta
         </span>
       </div>
+      <div />
       <div
-        class="w-full pt-5 mb-3 text-trueGray-600"
+        class="react-reveal"
       >
-        <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby="downshift-0-label"
-          class="relative flex flex-col w-full h-full"
-          role="combobox"
-        >
-          <form
-            action="handlers.ts"
-            class="relative top-0 flex items-center justify-between w-full overflow-hidden rounded-t-lg focus-within:bg-blueGray-700 focus-within:opacity-90 border-lightBlue-400  focus-within:border-lightBlue-400 focus-within:border-b-2 border-b"
-            role="form"
+        <div>
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="downshift-0-label"
+            class="relative flex flex-col w-full"
+            role="combobox"
           >
-            <label
-              class="w-full"
-              for="downshift-0-input"
-              id="downshift-0-label"
+            <form
+              action="handlers.ts"
+              class="relative flex items-center justify-between w-full focus-within:bg-blueGray-700 focus-within:opacity-90 border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2 border-b"
             >
               <label
-                for="search-input"
-              />
-              <input
-                accesskey="j"
-                aria-autocomplete="list"
-                aria-label="search-input"
-                aria-labelledby="downshift-0-label"
-                autocomplete="off"
-                class="w-full h-12 py-1 pl-3 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none bg-blueGray-800 text-blueGray-200 focus:opacity-90 focus:bg-blueGray-700"
-                id="downshift-0-input"
-                lang="en"
-                name="search-input"
-                placeholder="start searching..."
-                type="text"
-                value=""
-              />
-            </label>
-            <div
-              class="flex items-center text-trueGray-500 bg-blueGray-800"
-            >
-              <div
-                class="grid w-12 h-12 place-items-center"
-                data-testid="cc-container"
+                class="w-full"
+                for="downshift-0-input"
+                id="downshift-0-label"
               >
-                <button
-                  aria-label="submit"
-                  class="icon-btn w-12 h-12 rounded-none focus:bg-blueGray-500 text-blueGray-200"
-                  disabled=""
-                  role="button"
-                  type="submit"
+                <label
+                  for="search-input"
+                />
+                <input
+                  accesskey="j"
+                  aria-autocomplete="list"
+                  aria-label="search-input"
+                  aria-labelledby="downshift-0-label"
+                  autocomplete="off"
+                  class="w-full h-12 py-1 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none pl-3 bg-blueGray-800 text-blueGray-200"
+                  cn="pl-3 bg-blueGray-800 text-blueGray-200"
+                  id="downshift-0-input"
+                  lang="en"
+                  name="search-input"
+                  placeholder="start looking up words..."
+                  type="text"
+                  value=""
+                />
+              </label>
+              <div
+                class="flex items-center text-trueGray-500 bg-blueGray-800"
+              >
+                <div
+                  class="grid w-12 h-12 place-items-center"
+                  data-testid="cc-container"
                 >
-                  <svg
-                    class="mx-auto"
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <button
+                    aria-label="submit"
+                    class="icon-btn w-12 h-12 rounded-none text-blueGray-200"
+                    disabled=""
+                    role="button"
+                    type="submit"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-                 
+                    <svg
+                      class="mx-auto"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                   
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+            <ul
+              aria-labelledby="downshift-0-label"
+              class="absolute z-30 w-full py-2 text-lg tracking-wide rounded-b-lg shadow-lg b bg-blueGray-800 top-12 text-lightBlue-300"
+              hidden=""
+              id="downshift-0-menu"
+              role="listbox"
+            >
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-0"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    zebra
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-1"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    zombie
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-2"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    zoo
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-3"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    you
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-4"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    yield
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-5"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    year
+                  </span>
+                </span>
+              </li>
+              <li
+                aria-selected="false"
+                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
+                id="downshift-0-item-6"
+                role="option"
+              >
+                <span>
+                  <span
+                    class="text-blueGray-300"
+                  />
+                  <span>
+                    xanthine
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      class="fixed inset-0 z-0 h-screen bg-gradient-blueGray"
-    />
   </main>
 </DocumentFragment>
 `;
