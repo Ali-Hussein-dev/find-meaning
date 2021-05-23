@@ -1,5 +1,5 @@
 import { Gifs } from '@/components/Gifs';
-import { render, screen } from '@/test/testUtils';
+import { render } from '@/test/testUtils';
 // import mockedData from '@/test/mockedData.json';
 describe('Gifs', () => {
   // test('expect an instance of gif when mounted', async () => {
@@ -14,8 +14,9 @@ describe('Gifs', () => {
   // });
   test('expect fallback:Spinner', () => {
     const brokenSrc = '';
-    render(<Gifs list={[brokenSrc]} />);
-    const loading = screen.getByText(/loading\.\.\./i);
+    const { container } = render(<Gifs list={[brokenSrc]} />);
+
+    const loading = container.querySelector('.chakra-skeleton');
     expect(loading).toBeVisible();
   });
 });

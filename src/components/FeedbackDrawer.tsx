@@ -38,7 +38,6 @@ const updateIdentieferProperty = (
   store.set('identiefer', { ...identieferObj, ...keyValue });
 };
 const feedbackCount = store.get('identiefer').feedbackCount;
-//=======================FeedbackSubmitted
 
 //=======================FeedbackDrawer
 export const FeedbackDrawer: React.FC = () => {
@@ -181,6 +180,7 @@ export const FeedbackDrawer: React.FC = () => {
         <button
           type="button"
           onClick={onOpen}
+          data-testId="display-feedback"
           className="p-1 font-semibold underline rounded focus:outline-none text-blueGray-300 focus:ring-2 ring-lightBlue-500 hover:text-lightBlue-500"
         >
           Was this helpful?
