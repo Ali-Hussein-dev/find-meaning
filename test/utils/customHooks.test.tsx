@@ -25,11 +25,14 @@ const wrapper = ({ children }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 describe('Search Bar', () => {
-  test('look up device', async () => {
+  test("look up 'device'", async () => {
     let isEnabled = false;
-    const { result } = renderHook(() => useFetch('device', isEnabled), {
-      wrapper,
-    });
+    const { result } = renderHook(
+      () => useFetch(['lingua', 'device'], 'lingua', isEnabled),
+      {
+        wrapper,
+      },
+    );
     expect(result.current.isFetching).toBe(false);
     isEnabled = true;
     await waitFor(() => result.current.isSuccess);
