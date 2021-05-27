@@ -36,7 +36,7 @@ export const Home = (): JSX.Element => {
                 setMobSearchfocused(false);
               }}
             >
-              <div className="w-full sm:w-[640px] px-2">
+              <div className="w-full sm:w-[640px] px-4">
                 <div className="center">
                   <h1 className="mb-2 text-2xl font-semibold text-center text-orange-700">
                     Find Meaning
@@ -80,7 +80,7 @@ export const Home = (): JSX.Element => {
             <title>Find Meaning</title>
           </Head>
           <main className="relative grid w-full h-[93vh] place-items-center bg-blueGray-800">
-            <div className="w-full sm:w-[640px]">
+            <div className="w-full sm:w-[640px] px-4">
               <div className="center">
                 <h1 className="mb-2 text-2xl font-semibold text-center text-orange-700">
                   Find Meaning
