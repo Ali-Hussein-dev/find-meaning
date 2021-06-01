@@ -45,7 +45,7 @@ export const SearchBar: React.FC<{
   const [debounceValue] = useDebounce(inputValue, 500);
   useQuery(
     ['autocomplete', debounceValue],
-    () => fetcherPost('api/autocomplete', { query: inputValue }),
+    () => fetcherPost('api/autocomplete', { query: inputValue.toLowerCase() }),
     {
       staleTime: Infinity,
       cacheTime: Infinity,
