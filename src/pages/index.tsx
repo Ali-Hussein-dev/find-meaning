@@ -1,18 +1,11 @@
 import { SearchBar } from '@/components/index';
 import Head from 'next/head';
 import * as React from 'react';
-import store from 'store2';
-import { initialSuggestions } from 'src/utils';
 import { isMobile } from 'react-device-detect';
 import Fade from 'react-reveal/Fade';
 
 //--------------------------------------
 export const Home = (): JSX.Element => {
-  const storedKey = store.has('wik');
-  if (!storedKey) {
-    store.set('wik', initialSuggestions);
-  }
-  storedKey;
   switch (isMobile) {
     case true:
       {
