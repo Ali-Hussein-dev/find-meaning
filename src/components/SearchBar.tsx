@@ -81,9 +81,9 @@ export const SearchBar: React.FC<{
       <MobileView>
         <Downshift
           onChange={(selection) => {
-            return setInputValue(selection?.w || router.query.q);
+            return setInputValue(selection?.h || router.query.q);
           }}
-          itemToString={(item) => (item ? item.w : '')}
+          itemToString={(item) => (item ? item.h : '')}
           onInputValueChange={(inputValue) => {
             setInputValue(inputValue);
           }}
