@@ -6,7 +6,7 @@ exports[`Home page Home page 1`] = `
     class="relative grid w-full h-[93vh] place-items-center bg-blueGray-800"
   >
     <div
-      class="w-full sm:w-[640px]"
+      class="w-full sm:w-[640px] px-4"
     >
       <div
         class="center"
@@ -108,113 +108,7 @@ exports[`Home page Home page 1`] = `
               hidden=""
               id="downshift-0-menu"
               role="listbox"
-            >
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-0"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    zebra
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-1"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    zombie
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-2"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    zoo
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-3"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    you
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-4"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    yield
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-5"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    year
-                  </span>
-                </span>
-              </li>
-              <li
-                aria-selected="false"
-                class=" flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default"
-                id="downshift-0-item-6"
-                role="option"
-              >
-                <span>
-                  <span
-                    class="text-blueGray-300"
-                  />
-                  <span>
-                    xanthine
-                  </span>
-                </span>
-              </li>
-            </ul>
+            />
           </div>
         </div>
       </div>
