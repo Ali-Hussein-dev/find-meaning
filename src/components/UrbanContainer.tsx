@@ -5,7 +5,7 @@ import { TiChevronRight, TiInfoOutline } from 'react-icons/ti';
 import { Spinner, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { isEmpty } from 'lodash';
-import { useFetch } from 'src/utils';
+import { fetcherPost } from 'src/utils';
 import {
   Gifs,
   DefExm,
@@ -14,6 +14,7 @@ import {
   LoadingIndicator,
   CustomSkeleton,
 } from '@/components/index';
+import { useQuery } from 'react-query';
 
 //=======================
 export const UrbanContainer: React.FC = () => {
@@ -26,15 +27,26 @@ export const UrbanContainer: React.FC = () => {
   // eslint-disable-next-line prefer-const
   let query = typeof router.query?.q !== 'string' ? '' : router.query.q;
 
-  const urbanResponse = useFetch(
-    ['urban', query],
-    'urban',
-    enabledFetchingUrban,
-  );
-  const giphyResponse = useFetch(
+  const sharedConfig = {
+    staleTime: Infinity,
+    cacheTime: Infinity,
+    keepPreviousData: true,
+  };
+  const giphyResponse = useQuery(
     ['giphy', query],
-    'giphy',
-    enabledFetchingGiphy,
+    () => fetcherPost('api/handlers', { query, keyQuery: 'giphy' }),
+    {
+      ...sharedConfig,
+      enabled: enabledFetchingGiphy,
+    },
+  );
+  const urbanResponse = useQuery(
+    ['urban', query],
+    () => fetcherPost('api/handlers', { query, keyQuery: 'urban' }),
+    {
+      ...sharedConfig,
+      enabled: enabledFetchingUrban,
+    },
   );
   let urban, giphy;
   urban = urbanResponse.data?.data?.list || [];
