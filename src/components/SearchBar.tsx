@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { throttledGetSuggestions, storeSuggestion, useFetch } from 'src/utils';
+import {
+  throttledGetSuggestions,
+  storeSuggestion,
+  fetcherPost,
+} from 'src/utils';
 import { Suggestions, InputGroup } from '@/components/index';
 import Downshift from 'downshift';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { useQuery } from 'react-query';
 
 //=======================
 export const SearchBar: React.FC<{
@@ -21,10 +26,17 @@ export const SearchBar: React.FC<{
   if (typeof router.query.q !== 'string') {
     router.query.q = '';
   }
-  const linguaResponse = useFetch(['lingua', query], 'lingua', enabledFetching);
-  const { status } = linguaResponse;
+  const linguaResponse = useQuery(
+    ['lingua', query],
+    () => fetcherPost('api/handlers', { query, keyQuery: 'lingua' }),
+    {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      enabled: enabledFetching,
+      keepPreviousData: true,
+    },
+  );
   const lingua = linguaResponse.data?.data.lingua;
-
   React.useEffect(() => {
     if (typeof router.query?.q === 'string') {
       setInputValue(router.query.q);
@@ -101,7 +113,6 @@ export const SearchBar: React.FC<{
                 onSubmit={handleSubmit}
               >
                 <InputGroup
-                  status={status}
                   inputValue={inputValue}
                   setInputValue={setInputValue}
                   getLabelProps={getLabelProps}
@@ -146,7 +157,6 @@ export const SearchBar: React.FC<{
                 onSubmit={handleSubmit}
               >
                 <InputGroup
-                  status={status}
                   inputValue={inputValue}
                   setInputValue={setInputValue}
                   getLabelProps={getLabelProps}
