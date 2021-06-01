@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isEmpty } from 'lodash';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useRouter } from 'next/router';
-import { useFetch } from 'src/utils';
+import { fetcherPost } from 'src/utils';
 import {
   IdleUI,
   CondComp,
@@ -12,16 +12,23 @@ import {
   AsyncCondComp,
   CustomSkeleton,
 } from '@/components/index';
+import { useQuery } from 'react-query';
 
 //=======================
 export const WikContainer: React.FC = () => {
   //--------------------------------------hooks
   const router = useRouter();
   const query = typeof router.query?.q !== 'string' ? '' : router.query.q;
-  const linguaResponse = useFetch(
+
+  const linguaResponse = useQuery(
     ['lingua', query],
-    'lingua',
-    query.length <= 1 ? false : true,
+    () => fetcherPost('api/handlers', { query, keyQuery: 'lingua' }),
+    {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      keepPreviousData: true,
+      enabled: query.length <= 1 ? false : true,
+    },
   );
   const lingua = linguaResponse.data?.data.lingua;
   const islinguaResponeEmpty = isEmpty(lingua?.entries);

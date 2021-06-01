@@ -4,16 +4,16 @@ import { MdClear } from 'react-icons/md';
 import { Spinner, Tooltip } from '@chakra-ui/react';
 import { CondComp, Input } from '@/components/index';
 import { GetInputPropsOptions, GetLabelPropsOptions } from 'downshift';
-
+import { useIsFetching } from 'react-query';
 //=======================
 export const InputGroup: React.FC<{
-  status: 'loading' | 'idle' | 'error' | 'success';
   inputValue: string;
   setInputValue: (prvState: string) => void;
   getLabelProps: (options?: GetLabelPropsOptions) => any;
   getInputProps: <T>(options?: T) => T & GetInputPropsOptions;
-}> = ({ getLabelProps, getInputProps, status, inputValue, setInputValue }) => {
+}> = ({ getLabelProps, getInputProps, inputValue, setInputValue }) => {
   //--------------------------------------hooks
+  const isFetchingLingua = !!useIsFetching('lingua');
   const inputRef = React.useRef<HTMLInputElement>(null);
   //--------------------------------------functions
   const handleClear = () => {
@@ -33,7 +33,7 @@ export const InputGroup: React.FC<{
           {...getInputProps()}
           value={inputValue}
           onBlur={onBlur}
-          disabled={status === 'loading'}
+          disabled={isFetchingLingua}
           ref={inputRef}
         />
       </label>
@@ -42,7 +42,7 @@ export const InputGroup: React.FC<{
           <Tooltip hasArrow label="clear" aria-label="a tooltip">
             <button
               onClick={handleClear}
-              disabled={status === 'loading'}
+              disabled={isFetchingLingua}
               aria-label="clear"
               type="reset"
               data-testid="del-btn"
@@ -54,7 +54,7 @@ export const InputGroup: React.FC<{
           <div className="w-1 h-8 border-r" />
         </CondComp>
         <CondComp
-          baseCond={status !== 'loading'}
+          baseCond={!isFetchingLingua}
           fallback={
             <div className="grid w-12 h-12 place-items-center text-lightBlue-300">
               <Spinner size="sm" />
@@ -64,7 +64,7 @@ export const InputGroup: React.FC<{
         >
           <Tooltip hasArrow label="submit" aria-label="a tooltip">
             <button
-              disabled={inputValue.length === 0 || status === 'loading'}
+              disabled={inputValue.length === 0 || isFetchingLingua}
               role="button"
               type="submit"
               aria-label="submit"
