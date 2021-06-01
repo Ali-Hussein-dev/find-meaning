@@ -10,7 +10,7 @@ import { HighlightSubstring } from '@/components/index';
 import Zoom from 'react-reveal/Zoom';
 //-------------------------------types
 interface Item {
-  w: string;
+  h: string;
 }
 interface SuggestionsPropsT {
   isOpen: boolean;
@@ -53,7 +53,7 @@ export const Suggestions: React.FC<SuggestionsPropsT> = ({
             {list.map((o, i) => (
               <Zoom key={i} duration={300 + i * 100}>
                 <li
-                  {...getItemProps({ item: o, index: i, key: o.w })}
+                  {...getItemProps({ item: o, index: i, key: o.h })}
                   onClick={() => {
                     selectItem(o);
                   }}
@@ -65,7 +65,7 @@ export const Suggestions: React.FC<SuggestionsPropsT> = ({
                 >
                   <HighlightSubstring
                     inputValue={inputValue}
-                    suggestion={o.w}
+                    suggestion={o.h}
                   />
                 </li>
               </Zoom>
@@ -81,7 +81,7 @@ export const Suggestions: React.FC<SuggestionsPropsT> = ({
           className="absolute z-30 w-full py-2 text-lg tracking-wide rounded-b-lg shadow-lg b bg-blueGray-800 top-12 text-lightBlue-300"
           hidden={!(isOpen && list.length > 0)}
         >
-          {list.map((o, i) => {
+          {list?.map((o, i) => {
             return (
               <li
                 key={i}
@@ -93,9 +93,9 @@ export const Suggestions: React.FC<SuggestionsPropsT> = ({
                     ? 'bg-blueGray-600 text-lightBlue-100'
                     : ''
                 } flex items-center justify-between py-1 pl-4 my-1 hover:cursor-default`}
-                {...getItemProps({ item: o, index: i, key: o.w })}
+                {...getItemProps({ item: o, index: i, key: o.h })}
               >
-                <HighlightSubstring inputValue={inputValue} suggestion={o.w} />
+                <HighlightSubstring inputValue={inputValue} suggestion={o.h} />
               </li>
             );
           })}
