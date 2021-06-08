@@ -36,3 +36,7 @@ yarn-error.log*
 .env
 .env.development
 .env.production
+
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
