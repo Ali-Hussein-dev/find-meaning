@@ -31,7 +31,7 @@ const MyApp: React.FC<{ Component: React.FC; pageProps: any }> = ({
   return (
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon/favicon.ico" />
         <div className="z-10 min-h-screen">
           <Component {...pageProps} />
           <Footer />
