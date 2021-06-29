@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import {
-  throttledGetSuggestions,
-  storeSuggestion,
-  fetcherPost,
-} from 'src/utils';
+import { fetcherPost } from 'src/utils';
 import { Suggestions, InputGroup } from '@/components/index';
 import Downshift from 'downshift';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useQuery } from 'react-query';
-
+import { useDebounce } from 'use-debounce';
 //=======================
 export const SearchBar: React.FC<{
   pushRouter?: boolean;
@@ -18,15 +14,15 @@ export const SearchBar: React.FC<{
   const router = useRouter();
   const [inputValue, setInputValue] = React.useState('');
   const [enabledFetching, setEnabledFetching] = React.useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = React.useState(
-    throttledGetSuggestions('wik', inputValue),
-  );
+  const [filteredSuggestions, setFilteredSuggestions] = React.useState<
+    { h: string }[]
+  >([]);
   // eslint-disable-next-line prefer-const
-  let query = inputValue.trim();
+  let query = inputValue;
   if (typeof router.query.q !== 'string') {
     router.query.q = '';
   }
-  const linguaResponse = useQuery(
+  useQuery(
     ['lingua', query],
     () => fetcherPost('api/handlers', { query, keyQuery: 'lingua' }),
     {
@@ -36,7 +32,7 @@ export const SearchBar: React.FC<{
       keepPreviousData: true,
     },
   );
-  const lingua = linguaResponse.data?.data.lingua;
+
   React.useEffect(() => {
     if (typeof router.query?.q === 'string') {
       setInputValue(router.query.q);
@@ -45,10 +41,25 @@ export const SearchBar: React.FC<{
       setEnabledFetching(false);
     }
   }, [router.query.q]);
-
-  React.useEffect(() => {
-    setFilteredSuggestions(throttledGetSuggestions('wik', inputValue));
-  }, [inputValue]);
+  //--------------------------------------autocomplete-start
+  const [debounceValue] = useDebounce(inputValue, 500);
+  useQuery(
+    ['autocomplete', debounceValue],
+    () => fetcherPost('api/autocomplete', { query: inputValue.toLowerCase() }),
+    {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      enabled: !!debounceValue,
+      refetchOnWindowFocus: false,
+      onSuccess: (d) => {
+        setFilteredSuggestions(d.data?.suggestions[0]?.list || []);
+      },
+      onError: () => {
+        setFilteredSuggestions([]);
+      },
+    },
+  );
+  //--------------------------------------autocomplete-end
   //--------------------------------------functions
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,15 +67,12 @@ export const SearchBar: React.FC<{
     if (pushRouter) {
       router.push({
         pathname: '/search',
-        query: { q: inputValue.toLowerCase() },
+        query: { q: inputValue.toLowerCase().trim() },
       });
     } else {
       router.push({ query: { q: inputValue.trim().toLowerCase() } });
     }
-    if (lingua?.entries.length > 0) {
-      storeSuggestion('wik', inputValue); // store only queries with non-empty response
-    }
-    setFilteredSuggestions([]); // this to remove the dropdown when submitting
+    setFilteredSuggestions([]);
   };
   //=====================================return
 
@@ -73,9 +81,9 @@ export const SearchBar: React.FC<{
       <MobileView>
         <Downshift
           onChange={(selection) => {
-            return setInputValue(selection?.w || router.query.q);
+            return setInputValue(selection?.h || router.query.q);
           }}
-          itemToString={(item) => (item ? item.w : '')}
+          itemToString={(item) => (item ? item.h : '')}
           onInputValueChange={(inputValue) => {
             setInputValue(inputValue);
           }}
@@ -126,9 +134,9 @@ export const SearchBar: React.FC<{
       <BrowserView>
         <Downshift
           onChange={(selection) => {
-            return setInputValue(selection?.w || router.query.q);
+            return setInputValue(selection?.h || router.query.q);
           }}
-          itemToString={(item) => (item ? item.w : '')}
+          itemToString={(item) => (item ? item.h : '')}
           onInputValueChange={(inputValue) => {
             setInputValue(inputValue);
           }}
