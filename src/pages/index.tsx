@@ -25,7 +25,7 @@ export const Home = (): JSX.Element => {
             </Head>
             <main
               className="relative grid w-full h-[93vh] place-items-center bg-blueGray-800"
-              onClick={(e) => {
+              onMouseDown={(e) => {
                 e.stopPropagation();
                 setMobSearchfocused(false);
               }}
@@ -45,7 +45,7 @@ export const Home = (): JSX.Element => {
                   <span className="ml-1 text-xs text-blueGray-400">beta</span>
                 </div>
                 <div
-                  onClick={(e) => {
+                  onMouseDown={(e) => {
                     e.stopPropagation();
                     setMobSearchfocused(true);
                   }}
@@ -60,7 +60,7 @@ export const Home = (): JSX.Element => {
                 id="bottom"
                 hidden={!mobSearchfocused}
                 className="fixed bottom-0 z-10 w-full pt-1 bg-blueGray-800"
-                onClick={(e) => {
+                onMouseDown={(e) => {
                   e.stopPropagation();
                 }}
               >

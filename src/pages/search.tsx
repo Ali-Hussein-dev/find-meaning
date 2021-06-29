@@ -56,7 +56,7 @@ const SearchPage: React.FC = () => {
             </Head>
             <main className="relative flex flex-col items-center w-full min-h-screen px-1 pt-2 bg-blueGray-200 bg-pattern">
               <div
-                onClick={() => setSearchBarOpen(false)}
+                onMouseDown={() => setSearchBarOpen(false)}
                 data-testid="search-page"
                 className="w-full px-1 sm:w-[640px]"
               >
@@ -65,7 +65,7 @@ const SearchPage: React.FC = () => {
               {!searchBarOpen && (
                 <Zoom wait={100}>
                   <button
-                    onClick={() => setSearchBarOpen(true)}
+                    onMouseDown={() => setSearchBarOpen(true)}
                     type="button"
                     className="icon-btn fixed z-10 w-12 h-12 p-2 shadow-xl from-lightBlue-700 to-emerald-400 bg-gradient-to-tl bottom-1 right-2 text-blueGray-200 rounded-xl press-effect"
                   >
