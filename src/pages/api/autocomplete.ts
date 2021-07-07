@@ -6,16 +6,24 @@ const autocompleteHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
-  const query = req.body.query;
+  const query = JSON.parse(req.body).query;
+  if (!query) {
+    console.error('autocompelete: query is' + query);
+    res.status(406).end();
+  }
   const { db } = await connectToDB();
   const response = {
     suggestions: undefined,
   };
-  if (query) {
-    response.suggestions = await findByStartWith(db, query);
+
+  const dbResponse = await findByStartWith(db, query);
+  response.suggestions = dbResponse;
+  const length = response.suggestions[0]?.list.length;
+
+  if (length > 0) {
     res.status(200).end(JSON.stringify(response));
   } else {
-    res.status(200).end(JSON.stringify([]));
+    res.status(404).end();
   }
 };
 
