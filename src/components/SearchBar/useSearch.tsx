@@ -4,6 +4,7 @@ import { useIsFetching, useQuery } from 'react-query';
 import { fetcherPost, fetcherPost2 } from 'src/utils';
 import { useDebounce } from 'use-debounce';
 import { useCombobox } from 'downshift';
+import { useFocusEffect } from '@chakra-ui/react';
 
 //--------------------------------------
 export const useSearch = () => {
@@ -84,9 +85,14 @@ export const useSearch = () => {
     }
     setEnableAutocomplete(false);
   };
+  //--------------------------------------inputFocus
+  const [shouldInputFocus, setShouldInputFocus] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  useFocusEffect(inputRef, { shouldFocus: shouldInputFocus });
   //--------------------------------------Deletion
   const handleClear = () => {
     setInputValue('');
+    setShouldInputFocus(true);
   };
   //--------------------------------------
   return {
@@ -101,5 +107,6 @@ export const useSearch = () => {
     handleClear,
     combobox,
     setEnableAutocomplete,
+    inputRef,
   };
 };

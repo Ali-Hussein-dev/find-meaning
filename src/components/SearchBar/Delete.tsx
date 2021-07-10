@@ -11,9 +11,15 @@ export const Delete = () => {
       <Tooltip hasArrow label="clear" aria-label="a tooltip">
         <button
           onClick={handleClear}
+          onKeyDown={(e) => {
+            if (e.keyCode === 13 || e.keyCode === 32) {
+              e.preventDefault();
+              handleClear();
+            }
+          }}
           disabled={isFetchingLingua}
           aria-label="clear"
-          type="reset"
+          type="button"
           data-testid="del-btn"
           className="btn flex items-center w-12 h-12 rounded-none text-blueGray-200 gap-x-1"
         >
