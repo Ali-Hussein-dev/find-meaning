@@ -17,6 +17,7 @@ const InputWithRef = (props: InputProps, ref: inputRefType) => {
     isFetchingLingua,
     combobox,
     setEnableAutocomplete,
+    setShouldInputFocus,
   } = React.useContext(SearchCtx);
   const { getInputProps, getLabelProps, closeMenu } = combobox;
   return (
@@ -25,16 +26,20 @@ const InputWithRef = (props: InputProps, ref: inputRefType) => {
       <input
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        onBlur={() => {
-          setEnableAutocomplete(false);
-          closeMenu();
-        }}
         accessKey="j"
         type="text"
         lang="en"
         placeholder="start looking up words..."
         className={`w-full h-12 py-1 text-lg disabled:text-trueGray-400 disabled:cursor-not-allowed focus:outline-none ${cn}`}
-        {...getInputProps({ ref, disabled: isFetchingLingua })}
+        {...getInputProps({
+          ref,
+          disabled: isFetchingLingua,
+          onBlur: () => {
+            setEnableAutocomplete(false);
+            closeMenu();
+            setShouldInputFocus(false);
+          },
+        })}
       />
     </>
   );

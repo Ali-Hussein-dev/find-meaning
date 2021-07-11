@@ -108,5 +108,6 @@ export const useSearch = () => {
     combobox,
     setEnableAutocomplete,
     inputRef,
+    setShouldInputFocus,
   };
 };
