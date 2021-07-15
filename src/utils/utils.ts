@@ -21,6 +21,27 @@ export const fetcherPost = async (
     console.error(error);
   }
 };
+export const fetcherGet = async (
+  { query = '' }: { query: string },
+  { url = 'api/autocomplete?q=' }: { url?: string },
+): Promise<any> => {
+  const q = encodeURIComponent(query);
+  try {
+    // Create a new AbortController instance for this request
+    const controller = new AbortController();
+    // Get the abortController's signal
+    const signal = controller.signal;
+    const promise = fetch(`${url}${q}`, {
+      signal,
+    }).then((response) => response.json());
+    // Cancel the request if React Query calls the `promise.cancel` method
+    // @ts-ignore
+    promise.cancel = () => controller.abort();
+    return promise;
+  } catch (err) {
+    console.error(err);
+  }
+};
 //--------------------------------------fetcher_get
 interface HeaderParamsT {
   [key: string]: string;
