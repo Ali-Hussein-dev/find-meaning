@@ -21,6 +21,25 @@ export const fetcherPost = async (
     console.error(error);
   }
 };
+export const fetcherPost2 = (url: string, data: DataPost): Promise<any> => {
+  try {
+    // Create a new AbortController instance for this request
+    const controller = new AbortController();
+    // Get the abortController's signal
+    const signal = controller.signal;
+    const promise = fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      signal,
+    }).then((response) => response.json());
+    // Cancel the request if React Query calls the `promise.cancel` method
+    // @ts-ignore
+    promise.cancel = () => controller.abort();
+    return promise;
+  } catch (err) {
+    console.error(err);
+  }
+};
 //--------------------------------------fetcher_get
 interface HeaderParamsT {
   [key: string]: string;

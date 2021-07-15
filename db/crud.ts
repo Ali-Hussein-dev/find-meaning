@@ -46,7 +46,7 @@ export const findByStartWith = async (db: Db, query: string) => {
                 },
               },
               0,
-              10,
+              5,
             ],
           },
         },
