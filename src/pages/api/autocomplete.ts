@@ -11,11 +11,14 @@ const autocompleteHandler = async (
   const response = {
     suggestions: undefined,
   };
-  if (query) {
-    response.suggestions = await findByStartWith(db, query);
+  const dbResponse = await findByStartWith(db, query);
+  const length = dbResponse[0]?.list.length;
+
+  if (length > 0) {
+    response.suggestions = dbResponse;
     res.status(200).end(JSON.stringify(response));
   } else {
-    res.status(200).end(JSON.stringify([]));
+    res.status(404).end();
   }
 };
 
