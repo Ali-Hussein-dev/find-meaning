@@ -22,8 +22,8 @@ export const fetcherPost = async (
   }
 };
 export const fetcherGet = async (
-  { query = '' }: { query: string },
-  { url = 'api/autocomplete?q=' }: { url?: string },
+  { query = '' },
+  url = 'api/autocomplete?q=',
 ): Promise<any> => {
   const q = encodeURIComponent(query);
   try {
