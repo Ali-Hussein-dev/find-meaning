@@ -32,8 +32,8 @@ const handler = async (
   };
   if (req.method === 'POST') {
     const { query, keyQuery } = req.body;
-    if (query.length === 0) {
-      res.status(404).send(`you must provide a query`);
+    if (!query || !keyQuery) {
+      res.status(406).send(`you must provide a query`);
     }
     switch (keyQuery) {
       case 'urban':
