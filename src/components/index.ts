@@ -20,3 +20,4 @@ export * from './SearchBar/Submit';
 export * from './SearchBar/SearchBar';
 export * from './SearchBar/useSearch';
 export * from './SearchBar/Suggestions';
+export * from './SearchBar/FocusBtn';

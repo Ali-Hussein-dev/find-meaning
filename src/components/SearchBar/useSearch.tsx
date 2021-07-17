@@ -82,6 +82,7 @@ export const useSearch = () => {
     }
 
     setEnableAutocomplete(false);
+    setShouldInputFocus(false);
   };
   //--------------------------------------inputFocus
   const [shouldInputFocus, setShouldInputFocus] = React.useState(false);
@@ -108,5 +109,6 @@ export const useSearch = () => {
     inputRef,
     setShouldInputFocus,
     router,
+    shouldInputFocus,
   };
 };
