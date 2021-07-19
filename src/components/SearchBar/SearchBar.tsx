@@ -18,19 +18,18 @@ export const SearchBar: React.FC = () => {
     handleSubmit,
     combobox,
     inputRef,
-    router,
     shouldInputFocus,
     setShouldInputFocus,
   } = searchbarStore;
   const { getComboboxProps } = combobox;
-  switch (!isMobile) {
-    case true && router.pathname === '/':
+  switch (isMobile) {
+    case true:
       return (
         <SearchCtx.Provider value={{ ...searchbarStore }}>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full bg-blueGray-200">
             <form
               onSubmit={handleSubmit}
-              className="relative flex items-center justify-between w-full border-b border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2 bg-blueGray-800"
+              className="flex items-center justify-between w-full border-b border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2 bg-blueGray-800"
               {...getComboboxProps({}, { suppressRefError: true })}
             >
               <Input ref={inputRef} />
@@ -49,10 +48,10 @@ export const SearchBar: React.FC = () => {
     default:
       return (
         <SearchCtx.Provider value={{ ...searchbarStore }}>
-          <div className={`flex justify-center w-full`}>
+          <div className="relative flex justify-center w-full ">
             <form
               onSubmit={handleSubmit}
-              className={`relative flex items-center justify-between w-full focus-within:bg-blueGray-700  border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2 border-b`}
+              className="flex items-center justify-between w-full border-b border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2"
               {...getComboboxProps({}, { suppressRefError: true })}
             >
               <Input ref={inputRef} />
