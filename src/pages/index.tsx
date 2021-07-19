@@ -19,7 +19,7 @@ export const Home = (): JSX.Element => {
             <Fade top wait={100}>
               <SearchBar />
             </Fade>
-            <section className="flex flex-col justify-center flex-grow w-full bg-blueGray-100">
+            <section className="flex flex-col justify-center flex-grow w-full">
               <img
                 src="/icons/fm_logo.svg"
                 className="w-24 h-24 mx-auto"
