@@ -6,11 +6,12 @@ const autocompleteHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
-  const query = req.body.query;
+  const query = req.query.q;
   const { db } = await connectToDB();
   const response = {
     suggestions: undefined,
   };
+  // @ts-ignore
   const dbResponse = await findByStartWith(db, query);
   const length = dbResponse[0]?.list.length;
 

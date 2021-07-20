@@ -24,9 +24,8 @@ export class DictionaryReqObj {
   }
   getUrl(query: string): string | never {
     if (typeof query !== 'string') {
-      throw new Error('getUrl-error: typeof query is not string');
-    } else if (query.length === 0) {
-      throw new Error('getUrl-error: query string is empty');
+      console.error('query value recieved through getUrl: ', query);
+      return '';
     }
     return `${this.baseUrl}${query}`;
   }

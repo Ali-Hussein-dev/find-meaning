@@ -9,80 +9,45 @@ import Zoom from 'react-reveal/Zoom';
 export const Home = (): JSX.Element => {
   switch (isMobile) {
     case true:
-      {
-        //--------------------------------------hooks
-        const [mobSearchfocused, setMobSearchfocused] = React.useState(false);
-        React.useEffect(() => {
-          if (document && mobSearchfocused) {
-            //@ts-ignore
-            document.body.querySelector('#bottom input')?.focus();
-          }
-        }, [mobSearchfocused]);
-        return (
-          <>
-            <Head>
-              <title>Find Meaning</title>
-            </Head>
-            <main
-              className="relative grid w-full h-[93vh] place-items-center bg-blueGray-800"
-              onMouseDown={(e) => {
-                e.stopPropagation();
-                setMobSearchfocused(false);
-              }}
-            >
-              <div className="w-full sm:w-[640px] px-4">
-                <Zoom>
-                  <img
-                    src="/icons/fm_logo.svg"
-                    className="w-32 h-32 mx-auto"
-                    alt="logo"
-                  />
-                </Zoom>
-                <div className="center">
-                  <h1 className="mb-2 text-2xl font-semibold text-center text-orange-700">
-                    Find Meaning
-                  </h1>
-                  <span className="ml-1 text-xs text-blueGray-400">beta</span>
-                </div>
-                <div
-                  onMouseDown={(e) => {
-                    e.stopPropagation();
-                    setMobSearchfocused(true);
-                  }}
-                  hidden={mobSearchfocused}
-                >
-                  <Fade bottom wait={100}>
-                    <SearchBar pushRouter={true} />
-                  </Fade>
-                </div>
-              </div>
-              <div
-                id="bottom"
-                hidden={!mobSearchfocused}
-                className="fixed bottom-0 z-10 w-full pt-1 bg-blueGray-800"
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                <Fade bottom when={mobSearchfocused}>
-                  <SearchBar pushRouter={true} />
-                </Fade>
-              </div>
-            </main>
-          </>
-        );
-      }
+      return (
+        <>
+          <Head>
+            <title>Find-Meaning</title>
+            <link rel="icon" href="/favicon/favicon.ico" />
+          </Head>
+          <main className="relative w-full h-[97vh] bg-blueGray-800 flex flex-col px-1 justify-start">
+            <Fade top wait={100}>
+              <SearchBar />
+            </Fade>
+            <section className="flex flex-col justify-center flex-grow w-full">
+              <img
+                src="/icons/fm_logo.svg"
+                className="w-24 h-24 mx-auto"
+                alt="logo"
+              />
+              <h1 className="mb-0 text-lg font-semibold text-center text-orange-700">
+                Find-Meaning
+                <span className="ml-1 text-xs italic text-blueGray-400">
+                  prototype
+                </span>
+              </h1>
+              <h2 className="block text-xl text-center text-blueGray-200">
+                Dictionary For Ambitious Learners
+              </h2>
+            </section>
+          </main>
+        </>
+      );
       break;
-
     default:
       return (
         <>
           <Head>
-            <title>Find Meaning</title>
+            <title>Find-Meaning</title>
             <link rel="icon" href="/favicon/favicon.ico" />
           </Head>
-          <main className="relative grid w-full h-[93vh] place-items-center bg-blueGray-800">
-            <div className="w-full sm:w-[640px] px-4 mb-48">
+          <main className="grid w-full h-[93vh] place-items-center bg-blueGray-800">
+            <section className="sm:w-[640px] mb-48">
               <Zoom>
                 <img
                   src="/icons/fm_logo.svg"
@@ -90,17 +55,19 @@ export const Home = (): JSX.Element => {
                   alt="logo"
                 />
               </Zoom>
-              <div className="center">
-                <h1 className="mb-2 text-2xl font-semibold text-center text-orange-700">
-                  Find Meaning
-                </h1>
-                <span className="ml-1 text-xs text-blueGray-400">beta</span>
-              </div>
-              <div></div>
+              <h1 className="mb-0 text-2xl font-semibold text-center text-orange-700">
+                Find-Meaning
+                <span className="ml-1 text-xs italic text-blueGray-400">
+                  prototype
+                </span>
+              </h1>
+              <h2 className="block text-lg font-bold text-center text-blueGray-200">
+                Dictionary For Ambitious Learners
+              </h2>
               <Fade bottom wait={100}>
-                <SearchBar pushRouter={true} />
+                <SearchBar />
               </Fade>
-            </div>
+            </section>
           </main>
         </>
       );

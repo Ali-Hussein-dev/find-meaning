@@ -10,6 +10,7 @@ export const fetcherPost = async (
   data: DataPost,
 ): Promise<AxiosResponse> => {
   let promise;
+  if (!data.query) return;
   try {
     promise = await Axios({
       url: url,
@@ -22,8 +23,8 @@ export const fetcherPost = async (
   }
 };
 export const fetcherGet = async (
-  { query = '' }: { query: string },
-  { url = 'api/autocomplete?q=' }: { url?: string },
+  { query = '' },
+  url = 'api/autocomplete?q=',
 ): Promise<any> => {
   const q = encodeURIComponent(query);
   try {
@@ -39,7 +40,7 @@ export const fetcherGet = async (
     promise.cancel = () => controller.abort();
     return promise;
   } catch (err) {
-    console.error(err);
+    console.error('fetcherGet-response.status: ', err.response.status);
   }
 };
 //--------------------------------------fetcher_get
@@ -63,21 +64,10 @@ export const fetcher_get = async (config: FetcherGetParams): Promise<any> => {
       return response.data;
     })
     .catch((error) => {
-      console.error(error);
+      console.error('fetcher_get-response.status: ', error.response.status);
     });
 };
 //--------------------------------------types
-type partOfSpeechT = 'verb' | 'noun' | 'adjective' | 'adverb' | 'preposition';
-// interface WFormT {
-//   form: partOfSpeechT; // "noun" OR "adjective"
-//   list: string[]; // e.x ["car","cars"] OR ["",""]
-// }
-
-export interface Upcomming {
-  w: string;
-  partOfSpeechList: partOfSpeechT[];
-  // wForms: WFormT[];
-}
 
 /**
  * HOW TO GET CONJUGATED FORMS
@@ -87,7 +77,7 @@ export interface Upcomming {
  *    WHEN true => assign the results to the response obj ELSE: do not
  */
 //--------------------------------------conjugated-forms-API -> isVerb
-export const isVerb = (lingua: any = {}): boolean => {
+export const isVerb = (lingua: any = { entries: [] }): boolean => {
   if (lingua.entries.length < 1) return false;
   let isVerb = false;
   lingua.entries[0].lexemes.map((o) => {
