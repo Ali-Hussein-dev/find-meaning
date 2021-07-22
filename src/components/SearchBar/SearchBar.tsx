@@ -51,7 +51,7 @@ export const SearchBar: React.FC = () => {
           <div className="relative flex justify-center w-full ">
             <form
               onSubmit={handleSubmit}
-              className="flex items-center justify-between w-full border-b border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2"
+              className="flex items-center justify-between w-full border-b border-lightBlue-400 focus-within:border-lightBlue-400 focus-within:border-b-2 bg-blueGray-800"
               {...getComboboxProps({}, { suppressRefError: true })}
             >
               <Input ref={inputRef} />
