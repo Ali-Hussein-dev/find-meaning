@@ -1,7 +1,8 @@
 /* eslint-disable no-fallthrough */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { DictionaryReqObj, giphy } from './API_Data';
-import { fetcher_get, getContinousForm, isVerb } from 'src/utils/index';
+import { fetcher_get, getContinousForm, isVerb } from 'src/utils/';
+import { storeHeadword, connectToDB } from 'db/';
 
 const urbanConfig = new DictionaryReqObj(
   'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=',
@@ -30,6 +31,16 @@ const handler = async (
     lingua: undefined,
     conjugatedForms: undefined,
   };
+
+  let entry, db;
+  try {
+    const connect = await connectToDB();
+    db = connect.db;
+  } catch (err) {
+    // !todo:  exposed sensitive info when error ocurrs, fix required
+    console.error(err);
+  }
+
   if (req.method === 'POST') {
     const { query, keyQuery } = req.body;
     if (!query || !keyQuery) {
@@ -67,6 +78,13 @@ const handler = async (
             ];
           }
         }
+        //--------------------------------------storeQuery-start
+        entry =
+          typeof response.lingua.entries[0].entry === 'string'
+            ? response.lingua.entries[0].entry
+            : undefined;
+        entry && storeHeadword(db, entry);
+        //--------------------------------------storeQuery-end
         res.status(200).end(JSON.stringify(response));
         break;
       case 'giphy':
