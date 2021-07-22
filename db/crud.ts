@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Db } from 'mongodb';
+import type { Db } from 'mongodb';
 //--------------------------------------types
 export interface FeedbackT {
   name: string;
