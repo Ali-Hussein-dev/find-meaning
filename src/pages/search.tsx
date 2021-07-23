@@ -4,6 +4,7 @@ import {
   SearchBar,
   WikContainer,
   FeedbackDrawer,
+  FocusBtn,
 } from '@/components/index';
 import { useRouter } from 'next/router';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -44,7 +45,7 @@ const SearchPage: React.FC = () => {
   //--------------------------------------hooks
   const router = useRouter();
 
-  switch (!isMobile) {
+  switch (isMobile) {
     case true:
       return (
         <>
@@ -58,6 +59,7 @@ const SearchPage: React.FC = () => {
               </div>
               <ResponsesContainer isInitialPage={!router.query?.q} />
             </div>
+            <FocusBtn />
           </main>
         </>
       );

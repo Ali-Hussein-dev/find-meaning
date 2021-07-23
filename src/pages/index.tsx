@@ -1,4 +1,4 @@
-import { SearchBar } from '@/components/index';
+import { FocusBtn, SearchBar } from '@/components/index';
 import Head from 'next/head';
 import * as React from 'react';
 import { isMobile } from 'react-device-detect';
@@ -35,6 +35,7 @@ export const Home = (): JSX.Element => {
                 Dictionary For Ambitious Learners
               </h2>
             </section>
+            <FocusBtn />
           </main>
         </>
       );

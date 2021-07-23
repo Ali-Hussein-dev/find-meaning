@@ -5,7 +5,6 @@ import {
   Delete,
   Suggestions,
   Submit,
-  FocusBtn,
 } from '@/components/index';
 import { isMobile } from 'react-device-detect';
 
@@ -14,13 +13,7 @@ export const SearchCtx = React.createContext(undefined);
 //--------------------------------------
 export const SearchBar: React.FC = () => {
   const searchbarStore = useSearch();
-  const {
-    handleSubmit,
-    combobox,
-    inputRef,
-    shouldInputFocus,
-    setShouldInputFocus,
-  } = searchbarStore;
+  const { handleSubmit, combobox, inputRef } = searchbarStore;
   const { getComboboxProps } = combobox;
   switch (isMobile) {
     case true:
@@ -38,10 +31,6 @@ export const SearchBar: React.FC = () => {
             </form>
             <Suggestions />
           </div>
-          <FocusBtn
-            shouldInputFocus={shouldInputFocus}
-            setShouldInputFocus={setShouldInputFocus}
-          />
         </SearchCtx.Provider>
       );
       break;
