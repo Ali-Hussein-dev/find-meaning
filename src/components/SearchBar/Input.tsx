@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { SearchCtx } from '@/components/index';
+import { useStore } from './useSearch';
 interface InputProps extends React.ComponentPropsWithRef<'input'> {
   cn?: string;
 }
 
 export type inputRefType = React.RefObject<HTMLInputElement>;
-
+const storeSelector = (s) => ({
+  blurInput: s.blurInput,
+  focusInput: s.focusInput,
+});
 //=======================
 const InputWithRef = (props: InputProps, ref: inputRefType) => {
+  const { focusInput, blurInput } = useStore(storeSelector);
   const { cn = 'bg-blueGray-800 text-blueGray-200 pl-3' } = props;
   const {
     inputValue,
@@ -15,7 +20,6 @@ const InputWithRef = (props: InputProps, ref: inputRefType) => {
     isFetchingLingua,
     combobox,
     setEnableAutocomplete,
-    setShouldInputFocus,
   } = React.useContext(SearchCtx);
   const { getInputProps, getLabelProps } = combobox;
   return (
@@ -34,10 +38,10 @@ const InputWithRef = (props: InputProps, ref: inputRefType) => {
           disabled: isFetchingLingua,
           onBlur: () => {
             setEnableAutocomplete(false);
-            setShouldInputFocus(false);
+            blurInput();
           },
           onFocus: () => {
-            setShouldInputFocus(true);
+            focusInput();
           },
         })}
       />

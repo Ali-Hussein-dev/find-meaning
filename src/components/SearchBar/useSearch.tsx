@@ -6,6 +6,23 @@ import { useDebounce } from 'use-debounce';
 import { useCombobox } from 'downshift';
 import { useFocusEffect } from '@chakra-ui/react';
 
+import create from 'zustand';
+
+export type globalState = {
+  isInputFocused: boolean;
+  focusInput: () => void;
+  blurInput: () => void;
+};
+export const useStore = create<globalState>((set) => ({
+  isInputFocused: false,
+  focusInput: () => set((_state) => ({ isInputFocused: true })),
+  blurInput: () => set((_state) => ({ isInputFocused: false })),
+}));
+const storeSelector = (s) => ({
+  focusInput: s.focusInput,
+  blurInput: s.blurInput,
+  isInputFocused: s.isInputFocused,
+});
 //--------------------------------------
 export const useSearch = () => {
   const router = useRouter();
@@ -82,17 +99,17 @@ export const useSearch = () => {
     }
 
     setEnableAutocomplete(false);
-    setShouldInputFocus(false);
+    blurInput();
   };
   //--------------------------------------inputFocus
-  const [shouldInputFocus, setShouldInputFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
-  useFocusEffect(inputRef, { shouldFocus: shouldInputFocus });
+  const { isInputFocused, focusInput, blurInput } = useStore(storeSelector);
+  useFocusEffect(inputRef, { shouldFocus: isInputFocused });
   //--------------------------------------Deletion
-  const handleClear = () => {
+  const handleClear = React.useCallback(() => {
     setInputValue('');
-    setShouldInputFocus(true);
-  };
+    focusInput();
+  }, []);
   //--------------------------------------
   return {
     routerQuery,
@@ -107,8 +124,6 @@ export const useSearch = () => {
     combobox,
     setEnableAutocomplete,
     inputRef,
-    setShouldInputFocus,
     router,
-    shouldInputFocus,
   };
 };
