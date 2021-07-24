@@ -16,7 +16,7 @@ const findHeadword = async (db: Db, query: string): Promise<boolean> => {
 const pushHeadword = async (db: Db, query: string) => {
   await db
     .collection('autocomplete')
-    .update({ _id: query.charAt(0) }, { $push: { list: { h: query } } });
+    .updateOne({ _id: query.charAt(0) }, { $push: { list: { h: query } } });
 };
 
 //--------------------------------------
